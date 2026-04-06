@@ -83,7 +83,7 @@ const contacts = ref([
     {
         id: 3,
         title: 'Instagram',
-        subtitle: '@hansss.18',
+        subtitle: '@farhanabdulghn',
         idIcon: '32309',
         onclick() {
             return `https://www.instagram.com/${this.subtitle.substring(1)}`;
@@ -92,7 +92,7 @@ const contacts = ref([
     {
         id: 4,
         title: 'Github',
-        subtitle: 'hansss18',
+        subtitle: 'farhanabdulghn',
         idIcon: '106562',
         onclick() {
             return `https://github.com/${this.subtitle}`;

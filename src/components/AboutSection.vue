@@ -48,11 +48,26 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 const langs = (key) => useI18n().t(`aboutSection.${key}`);
 
+const startDate = new Date(2022, 8);
+
+const yearsExperience = computed(() => {
+    const now = new Date();
+    let years = now.getFullYear() - startDate.getFullYear();
+
+    const hasNotPassed =
+        now.getMonth() < startDate.getMonth() ||
+        (now.getMonth() === startDate.getMonth() &&
+         now.getDate() < startDate.getDate());
+
+    if (hasNotPassed) years--;
+
+    return years;
+});
 const data = ref(null);
 const loading = ref(true);
 const error = ref(null);
@@ -79,7 +94,7 @@ const stats = ref([
     },
     {
         id: 3,
-        value: '+2',
+        value: `+${yearsExperience.value}`,
         label: 'Years Experience',
     }
 ]);
