@@ -24,7 +24,7 @@
             },
             {
                 "name": "Pengembangan Web",
-                "description": "Membangun aplikasi web modern menggunakan Vue.js untuk antarmuka pengguna yang dinamis."
+                "description": "Building modern web applications using Vue.js for dynamic user interfaces."
             }
         ]
     },
@@ -55,8 +55,10 @@
         "title": "Project Terbaru Saya",
         "projects": {
             "desc": [
-                "Aplikasi mobile yang memudahkan pengguna untuk login, mendaftar akun, dan melakukan pemesanan layanan secara online dengan cepat dan praktis.",
-                "Aplikasi yang dirancang untuk memudahkan pelanggan dalam melakukan transaksi dan menemukan lokasi klinik terdekat melalui fitur maps interaktif."
+                "Aplikasi Al-Qur’an digital yang menyediakan fitur lengkap seperti terjemahan, murotal, jadwal sholat, dan arah kiblat untuk menunjang ibadah sehari-hari, serta telah dipublikasikan di Google Play Store",
+                "Aplikasi buku tamu digital berbasis QR yang memungkinkan pengguna melakukan check-in dengan scan QR, input manual, serta mendukung fitur pencetakan data tamu untuk kebutuhan dokumentasi",
+                "Aplikasi bisnis yang digunakan untuk mengelola Purchase Order (PO), Sales Order (SO), Delivery Order, serta tracking resi secara terintegrasi untuk mempermudah proses operasional dan distribusi.",
+                "Aplikasi layanan pelanggan yang memungkinkan pengguna melakukan pemesanan produk, booking layanan, mengambil antrian digital, melacak lokasi terdekat, mengunduh member digital, serta menerima notifikasi secara real-time dalam satu platform terintegrasi."
             ]
         },
         "all": "semua"

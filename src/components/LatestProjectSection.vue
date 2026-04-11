@@ -6,7 +6,7 @@
                 <div class="flex space-x-4 mb-4 mt-5 md:mt-0">
                     <button :class="{
                         'text-primary': selectedCategory === category, 'text-white': selectedCategory !== category
-                    }" class="hover:text-primary" v-for="category in ['all', 'web development', 'Mobile App']"
+                    }" class="hover:text-primary" v-for="category in ['all', 'Web Development', 'Mobile App']"
                         :key="category" @click="selectedCategory = category">
                         {{ category }}
                     </button>
@@ -14,13 +14,16 @@
             </div>
             <ul class="px-4 sm:py-16 xl:pr-16 grid grid-cols-1 gap-6 pt-10 sm:grid-cols-2 md:gap-10 md:pt-12 lg:grid-cols-3"
                 data-aos="fade-right">
-                <div v-for="project in filteredProjects" :key="project.id">
+                <div v-for="(project, index) in filteredProjects" :key="index">
                     <div class="h-52 md:h-[24rem] rounded-t-xl relative group"
-                        :style="{ backgroundImage: 'url(' + project.image + ')', backgroundSize: 'cover' }">
+                        :style="{ backgroundImage: 'url(' + project.image + ')', backgroundSize: 'cover',
+                        backgroundPosition: 'center', backgroundRepeat: 'no-repeat'
+                            
+                         }">
                         <div
                             class="overlay items-center justify-center absolute top-0 left-0 w-full h-full bg-[#181818] bg-opacity-0 hidden group-hover:flex group-hover:bg-opacity-80 transition-all duration-500">
                             <a class="h-14 w-14 mr-2 border-2 relative rounded-full border-[#ADB7BE] hover:border-white group/link"
-                                :href="project.webURL"> <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                :href="project.webURL" target="_blank" rel="noopener noreferrer"> <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                                     viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"
                                     data-slot="icon"
                                     class="h-10 w-10 text-[#ADB7BE] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  cursor-pointer group-hover/link:text-white">
@@ -45,7 +48,7 @@
                     </div>
                     <div class="text-white rounded-b-xl mt-3 bg-[#111a3e] shadow-lg border border-[#1f1641] py-6 px-4">
                         <h3 class="text-lg font-semibold uppercase lg:text-xl"> {{ project.title }}</h3>
-                        <p class="text-[#ADB7BE]">{{ langs(`projects.desc[${project.description}]`) }}</p>
+                        <p class="text-[#ADB7BE]">{{ langs(`projects.desc[${index}]`) }}</p>
                         <div class="flex flex-wrap p-2.5">
                             <div v-for="technology in project.technologies" :key="technology.id"
                                 class="text-center ml-1 mt-1 rounded-3xl bg-[#111827]"
@@ -69,26 +72,41 @@ const langs = (key) => useI18n().t(`latestProjectSection.${key}`);
 
 const projects = ref([
     {
-        id: 1,
+        category: 'Mobile App',
+        image: '/hansfolio/assets/images/projects/quran_al_barkah.svg',
+        title: 'Quran Al Barkah',
+        technologies: ['Flutter', 'Android'],
+        githubURL: '',
+        webURL: 'https://play.google.com/store/apps/details?id=com.gridiyansapps.quran_al_barkah&pcampaignid=web_share'
+    },
+    {
+        category: 'Mobile App',
+        image: '/hansfolio/assets/images/projects/qr_guest_book.webp',
+        title: 'QR Guest Book',
+        technologies: ['Flutter', 'Android'],
+        githubURL: '',
+        webURL: 'https://play.google.com/store/apps/details?id=com.gridiyansapps.quran_al_barkah&pcampaignid=web_share'
+    },
+    {
         category: 'Mobile App',
         image: '/hansfolio/assets/images/projects/benings.png',
         title: 'Benings App',
-        description: 0,
         technologies: ['Flutter', 'Android', 'IOS'],
         githubURL: '',
         webURL: ''
     },
     {
-        id: 2,
         category: 'Mobile App',
-        image: '/hansfolio/assets/images/projects/aestech.png',
-        title: 'Aestech Customer',
-        description: 1,
+        image: '/hansfolio/assets/images/projects/aestech.webp',
+        title: 'Aestech Customer (Unofficial Name)',
         technologies: ['Flutter', 'Android', 'IOS'],
         githubURL: '',
         webURL: ''
     },
-]);
+].map((item, index) => ({
+    ...item,
+    order: index
+})));
 
 const selectedCategory = ref('all');
 const filteredProjects = computed(() => {

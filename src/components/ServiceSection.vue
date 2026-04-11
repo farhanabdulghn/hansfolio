@@ -45,7 +45,7 @@ const services = ref([
         id: 2,
         icon: 'https://img.icons8.com/ios-filled/100/ffffff/google-code.png',
         name: 'Web Development',
-        description: 'list[0].description'
+        description: 'list[1].description'
     },
 ]);
 </script>
