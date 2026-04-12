@@ -89,7 +89,7 @@
           <div
             class="text-white rounded-b-xl mt-3 bg-[#111a3e] shadow-lg border border-[#1f1641] py-6 px-4"
           >
-            <h3 class="text-lg font-semibold uppercase lg:text-xl">
+            <h3 class="text-lg font-semibold lg:text-xl">
               {{ project.title }}
             </h3>
             <p class="text-[#ADB7BE]">{{ langs(`projects.desc[${index}]`) }}</p>
@@ -277,12 +277,18 @@ const projects = ref(
     },
     {
       category: "Mobile App",
+      image: "/hansfolio/assets/images/projects/aesline.webp",
+      title: "AESLINE DISPLAY",
+      technologies: ["Flutter", "Android TV", "Google TV"],
+      webURL:
+        "https://play.google.com/store/apps/details?id=io.aestech.aesline&pcampaignid=web_share",
+    },
+    {
+      category: "Mobile App",
       image: "/hansfolio/assets/images/projects/qr_guest_book.webp",
       title: "QR Guest Book",
       technologies: ["Flutter", "Android"],
-      githubURL: "",
-      webURL:
-        "https://play.google.com/store/apps/details?id=com.gridiyansapps.quran_al_barkah&pcampaignid=web_share",
+      webURL: "",
     },
     {
       category: "Mobile App",

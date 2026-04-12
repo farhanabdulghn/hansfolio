@@ -56,6 +56,7 @@
         "projects": {
             "desc": [
                 "Aplikasi Al-Qur’an digital yang menyediakan fitur lengkap seperti terjemahan, murotal, jadwal sholat, dan arah kiblat untuk menunjang ibadah sehari-hari, serta telah dipublikasikan di Google Play Store",
+                "Aplikasi antrian digital untuk Android/Google TV yang menampilkan nomor antrian secara real-time dengan berbagai jenis antrian, dilengkapi pemanggilan antrian dengan audio otomatis, serta mendukung penayangan konten dari YouTube maupun video lokal (storage/flashdisk), dan telah dipublikasikan di Google Play Store.",
                 "Aplikasi buku tamu digital berbasis QR yang memungkinkan pengguna melakukan check-in dengan scan QR, input manual, serta mendukung fitur pencetakan data tamu untuk kebutuhan dokumentasi",
                 "Aplikasi bisnis yang digunakan untuk mengelola Purchase Order (PO), Sales Order (SO), Delivery Order, serta tracking resi secara terintegrasi untuk mempermudah proses operasional dan distribusi.",
                 "Aplikasi layanan pelanggan yang memungkinkan pengguna melakukan pemesanan produk, booking layanan, mengambil antrian digital, melacak lokasi terdekat, mengunduh member digital, serta menerima notifikasi secara real-time dalam satu platform terintegrasi."

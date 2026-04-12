@@ -56,6 +56,7 @@
         "projects": {
             "desc": [
                 "A digital Quran application that offers complete features such as translations, audio recitations, prayer times, and Qibla direction to support daily worship, and is officially published on the Google Play Store.",
+                "A digital queue management application for Android/Google TV that displays real-time queue numbers with multiple queue types, features automated audio call announcements, and supports content playback from YouTube or local storage (including flash drives), and is officially published on the Google Play Store.",
                 "A QR-based digital guest book application that allows users to check in via QR scanning or manual entry, and supports guest data printing for documentation purposes.",
                 "A business application designed to manage Purchase Orders (PO), Sales Orders (SO), Delivery Orders, and shipment tracking in an integrated system to streamline operational and distribution processes.",
                 "A customer service application that enables users to order products, book services, take digital queue numbers, track nearby locations, download digital membership cards, and receive real-time notifications within a single integrated platform."
