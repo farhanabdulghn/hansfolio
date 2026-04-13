@@ -292,7 +292,7 @@ const projects = ref(
     },
     {
       category: "Mobile App",
-      image: "/hansfolio/assets/images/projects/benings.png",
+      image: "/hansfolio/assets/images/projects/benings_app.webp",
       title: "Benings App",
       technologies: ["Flutter", "Android", "IOS"],
       webURL: "",
