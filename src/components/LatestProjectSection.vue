@@ -269,7 +269,7 @@ const projects = ref(
   [
     {
       category: "Mobile App",
-      image: "/hansfolio/assets/images/projects/quran_al_barkah.svg",
+      image: "/hansfolio/assets/images/projects/quran_al_barkah.webp",
       title: "Quran Al Barkah",
       technologies: ["Flutter", "Android"],
       webURL:
