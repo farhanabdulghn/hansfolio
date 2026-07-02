@@ -85,10 +85,16 @@ const experiences = ref([
         date: 'period[0]'
     },
     {
+        id: 1,
+        role: 'Mobile Developer',
+        company: 'PT. Ruang Konsul Indonesia',
+        date: 'period[1]'
+    },
+    {
         id: 2,
         role: 'Mobile Developer',
         company: 'PT. Aesthetic Teknologi Indonesia',
-        date: 'period[1]'
+        date: 'period[2]'
     }
 ]);
 </script>
