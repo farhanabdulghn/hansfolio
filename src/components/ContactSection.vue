@@ -11,7 +11,7 @@
                         class="flex mb-10 items-center transition transform hover:scale-105 hover:shadow-lg hover:bg-[#162043] rounded-lg p-4">
                         <div class="p-2 transition transform hover:scale-110"
                             style="background: #111a3e; width: 50px; height: 44px; display: flex; justify-content: center; border-radius: 50%; overflow: hidden; border: 1px solid #111a3e; backdrop-filter: blur(9px); -webkit-backdrop-filter: blur(9px);">
-                            <img :src="`https://img.icons8.com/?size=50&id=${contact.idIcon}&format=png&color=ffffff`"
+                            <img :src="`https://img.icons8.com/?size=50&id=${contact.id}&format=png&color=ffffff`"
                                 :alt="`${contact.icon}`" class="w-6">
                         </div>
                         <div class="ml-5 text-white">
@@ -63,40 +63,62 @@ const langs = (key) => useI18n().t(`contactSection.${key}`);
 
 const contacts = ref([
     {
-        id: 1,
+        id: '12623',
         title: 'Email',
         subtitle: 'abgfarhan18@gmail.com',
-        idIcon: '12623',
         onclick() {
             return `mailto:${this.subtitle}`;
         },
     },
+     {
+        id: '106562',
+        title: 'Github',
+        subtitle: 'farhanabdulghn',
+        onclick() {
+            return `https://github.com/${this.subtitle}`;
+        }
+    },
+     {
+        id: '16733',
+        title: 'Whatsapp',
+        subtitle: '+6285117115655',
+        onclick() {
+            return `https://wa.me/${this.subtitle}`;
+        }
+    },
     {
-        id: 2,
+        id: '8808',
         title: 'Linkedin',
         subtitle: 'www.linkedin.com',
-        idIcon: '8808',
         onclick() {
             return `https://${this.subtitle}/in/farhan-ab-g-74001a260/`;
         },
     },
     {
-        id: 3,
+        id: '32309',
         title: 'Instagram',
         subtitle: '@farhanabdulghn',
-        idIcon: '32309',
         onclick() {
             return `https://www.instagram.com/${this.subtitle.substring(1)}`;
         },
     },
+   
     {
-        id: 4,
-        title: 'Github',
-        subtitle: 'farhanabdulghn',
-        idIcon: '106562',
+        id: 'phOKFKYpe00C',
+        title: 'X',
+        subtitle: 'Farhan180202',
         onclick() {
-            return `https://github.com/${this.subtitle}`;
+            return `https://x.com/${this.subtitle}`;
         }
-    }
+    },
+    {
+        id: '118467',
+        title: 'Facebook',
+        subtitle: 'farhan.a.ghani.90',
+        onclick() {
+            return `https://www.facebook.com/${this.subtitle}`;
+        }
+    },
+   
 ]);
 </script>
