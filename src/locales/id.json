@@ -1,8 +1,8 @@
 {
     "navBar": {
-        "service" : "Layanan",
-        "aboutMe" : "Tentang saya",
-        "skills" : "Skill",
+        "service": "Layanan",
+        "aboutMe": "Tentang saya",
+        "skills": "Skill",
         "projects": "Project",
         "contact": "Kontak"
     },
@@ -46,7 +46,7 @@
             "Saya"
         ],
         "titleExperience": "Pengalaman Saya",
-        "period":[
+        "period": [
             "Aug 2022 - Des 2022",
             "Jan 2023 - Aug 2023",
             "Aug 2023 - Sekarang"
@@ -65,8 +65,32 @@
         },
         "all": "semua"
     },
+    "certificateSection": {
+        "title": "Lisensi & Sertifikasi",
+        "issued": "Diterbitkan",
+        "credentialId": "ID Kredensial",
+        "showCredential": "Lihat kredensial",
+        "list": [
+            {
+                "title": "Penghargaan Pertumbuhan Profesional Engineering",
+                "issueDate": "Jul 2026"
+            },
+            {
+                "title": "Claude Vibe Coding",
+                "issueDate": "Jul 2026"
+            },
+            {
+                "title": "Claude Advanced Workflows",
+                "issueDate": "Jul 2026"
+            },
+            {
+                "title": "Claude",
+                "issueDate": "Jul 2026"
+            }
+        ]
+    },
     "contactSection": {
         "title": "Mari Terhubung",
         "desc": "Saya di sini untuk membantu. Jika Anda memiliki pertanyaan atau ingin mendiskusikan bagaimana kita dapat berkolaborasi, jangan ragu untuk menghubungi saya melalui salah satu opsi di bawah ini. Saya selalu siap untuk mendengarkan dan memberikan solusi terbaik untuk kebutuhan Anda. Hubungi saya sekarang, saya ingin sekali mendengar cerita Anda!"
     }
-  }
+}

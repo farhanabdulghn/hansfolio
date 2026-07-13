@@ -9,8 +9,8 @@
           <AboutSection />
           <ExperienceAndSkillSection />
           <LatestProjectSection />
+          <CertificateSection />
           <ContactSection />
-          <!-- <TestimonialsSection /> -->
           <FooterSection />
           <BackToTop />
         </div>
@@ -31,8 +31,8 @@ import ServiceSection from "./components/ServiceSection.vue";
 import AboutSection from "./components/AboutSection.vue";
 import ExperienceAndSkillSection from "./components/ExperienceAndSkillSection.vue";
 import LatestProjectSection from "./components/LatestProjectSection.vue";
+import CertificateSection from "./components/CertificateSection.vue";
 import ContactSection from "./components/ContactSection.vue";
-// import TestimonialsSection from "./components/TestimonialsSection.vue";
 import FooterSection from "./components/FooterSection.vue";
 import BackToTop from "./components/BackToTop.vue";
 import LoadingSpinner from "./components/LoadingSpinner.vue";

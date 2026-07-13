@@ -1,8 +1,8 @@
 {
     "navBar": {
-        "service" : "Service",
-        "aboutMe" : "About Me",
-        "skills" : "Skills",
+        "service": "Service",
+        "aboutMe": "About Me",
+        "skills": "Skills",
         "projects": "Projects",
         "contact": "Contact"
     },
@@ -46,7 +46,7 @@
             "Skills"
         ],
         "titleExperience": "My Experiences",
-        "period":[
+        "period": [
             "Aug 2022 - Dec 2022",
             "Jan 2023 - Aug 2023",
             "Aug 2023 - Now"
@@ -65,9 +65,32 @@
         },
         "all": "all"
     },
+    "certificateSection": {
+        "title": "Licenses & Certifications",
+        "issued": "Issued",
+        "credentialId": "Credential ID",
+        "showCredential": "Show credential",
+        "list": [
+            {
+                "title": "Engineering Professional Development Award",
+                "issueDate": "Jul 2026"
+            },
+            {
+                "title": "Claude Vibe Coding",
+                "issueDate": "Jul 2026"
+            },
+            {
+                "title": "Claude Advanced Workflows",
+                "issueDate": "Jul 2026"
+            },
+            {
+                "title": "Claude",
+                "issueDate": "Jul 2026"
+            }
+        ]
+    },
     "contactSection": {
         "title": "Let's Connect",
         "desc": "I'm here to help. Whether you have questions or want to discuss how we can collaborate, feel free to reach out through any of the options below. I'm always ready to listen and provide the best solutions for your needs. Get in touch now, I'd love to hear your story!"
     }
-  }
-  
+}
