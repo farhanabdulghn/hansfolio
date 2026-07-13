@@ -28,7 +28,7 @@
                 <h2 class="text-4xl font-bold text-white text-left mb-8 md:text-center md:mt-0 mt-8">{{
                     langs("titleExperience") }}</h2>
                 <div class="space-y-8 py-8" data-aos="fade-left">
-                    <a v-for="experience in experiences" :key="experience.company" :href="experience.url"
+                    <a v-for="(experience, index) in experiences" :key="experience.company" :href="experience.url"
                         target="_blank" rel="noopener noreferrer"
                         class="flex items-center rounded-xl p-4 bg-[#111a3e] shadow-lg border border-[#1f1641] transition hover:border-primary hover:scale-[1.02] duration-200">
                         <div class="w-1/4 flex justify-center">
@@ -44,7 +44,7 @@
                                 {{ experience.role }}
                             </h3>
                             <p class="text-white">{{ experience.company }}</p>
-                            <p class="text-white">{{ langs(experience.date) }}</p>
+                            <p class="text-white">{{ langs(`period[${index}]`) }}</p>
                         </div>
                     </a>
                 </div>
@@ -81,21 +81,18 @@ const experiences = ref([
     buildExperience({
         role: 'Intern Full-stack Developer',
         company: 'PT. Bejana Investidata Globalindo',
-        date: 'period[0]',
         logoSlug: 'bigio',
         linkedinSlug: 'bejanainovasi',
     }),
     buildExperience({
         role: 'Mobile Developer',
         company: 'PT. Ruang Konsul Indonesia',
-        date: 'period[1]',
         logoSlug: 'konsulin',
         linkedinSlug: 'pt-ruang-konsul-indonesia',
     }),
     buildExperience({
         role: 'Mobile Developer',
         company: 'PT. Aesthetic Teknologi Indonesia',
-        date: 'period[2]',
         logoSlug: 'aestech',
         linkedinSlug: 'aestech-official',
     }),
