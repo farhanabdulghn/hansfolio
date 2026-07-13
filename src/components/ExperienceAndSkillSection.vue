@@ -28,10 +28,15 @@
                 <h2 class="text-4xl font-bold text-white text-left mb-8 md:text-center md:mt-0 mt-8">{{
                     langs("titleExperience") }}</h2>
                 <div class="space-y-8 py-8" data-aos="fade-left">
-                    <div v-for="experience in experiences" :key="experience.company"
-                        class="flex items-center rounded-xl p-4 bg-[#111a3e] shadow-lg border border-[#1f1641]">
-                        <div class="w-1/4">
-                            <img src="https://img.icons8.com/ios-filled/100/ffffff/lawyer.png" alt="lawyer">
+                    <a v-for="experience in experiences" :key="experience.company" :href="experience.url"
+                        target="_blank" rel="noopener noreferrer"
+                        class="flex items-center rounded-xl p-4 bg-[#111a3e] shadow-lg border border-[#1f1641] transition hover:border-primary hover:scale-[1.02] duration-200">
+                        <div class="w-1/4 flex justify-center">
+                            <div
+                                class="w-32 h-32 rounded-lg overflow-hidden bg-white flex items-center justify-center shrink-0">
+                                <img :src="experience.logo" :alt="experience.company"
+                                    class="w-full h-full object-cover" />
+                            </div>
                         </div>
                         <div class="w-3/4 pl-4">
                             <h3
@@ -41,7 +46,7 @@
                             <p class="text-white">{{ experience.company }}</p>
                             <p class="text-white">{{ langs(experience.date) }}</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -55,39 +60,44 @@ import { useI18n } from 'vue-i18n';
 const langs = (key) => useI18n().t(`experienceAndSkillSection.${key}`);
 
 const skills = ref([
-    {
-        name: 'Dart',
-        width: '96%'
-    },
-    {
-        name: 'HTML & CSS',
-        width: '85%'
-    },
-    {
-        name: 'JavaScript',
-        width: '70%'
-    },
-    {
-        name: 'PHP',
-        width: '60%'
-    },
+    { name: 'Dart', width: '96%' },
+    { name: 'HTML & CSS', width: '85%' },
+    { name: 'JavaScript', width: '70%' },
+    { name: 'PHP', width: '60%' },
 ]);
 
+const logoBase = '/hansfolio/assets/icons/companies';
+const linkedinBase = 'https://www.linkedin.com/company';
+
+const buildExperience = ({ role, company, date, logoSlug, linkedinSlug }) => ({
+    role,
+    company,
+    date,
+    logo: `${logoBase}/${logoSlug}.jpg`,
+    url: `${linkedinBase}/${linkedinSlug}/`,
+});
+
 const experiences = ref([
-    {
+    buildExperience({
         role: 'Intern Full-stack Developer',
         company: 'PT. Bejana Investidata Globalindo',
-        date: 'period[0]'
-    },
-    {
+        date: 'period[0]',
+        logoSlug: 'bigio',
+        linkedinSlug: 'bejanainovasi',
+    }),
+    buildExperience({
         role: 'Mobile Developer',
         company: 'PT. Ruang Konsul Indonesia',
-        date: 'period[1]'
-    },
-    {
+        date: 'period[1]',
+        logoSlug: 'konsulin',
+        linkedinSlug: 'pt-ruang-konsul-indonesia',
+    }),
+    buildExperience({
         role: 'Mobile Developer',
         company: 'PT. Aesthetic Teknologi Indonesia',
-        date: 'period[2]'
-    }
+        date: 'period[2]',
+        logoSlug: 'aestech',
+        linkedinSlug: 'aestech-official',
+    }),
 ]);
 </script>
