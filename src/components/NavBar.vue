@@ -118,7 +118,6 @@ const closeLangMenu = () => {
     isLangOpen.value = false;
 };
 
-// Simple click-outside directive so the dropdown closes when clicking elsewhere
 const vClickOutside = {
     mounted(el, binding) {
         el.__clickOutsideHandler__ = (event) => {
