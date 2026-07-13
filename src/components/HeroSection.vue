@@ -43,7 +43,7 @@
                             </button>
                             <div v-if="showMenu"
                                 class="absolute top-12 left-0 w-max bg-white border border-gray-200 shadow-lg rounded-lg z-50">
-                                <a href="/hansfolio/assets/resume.pdf" download="cv-Farhan.pdf"
+                                <a href="/hansfolio/assets/resume.pdf" download="cv-FarhanAbdulGhani.pdf"
                                     class="block px-4 py-2 w-full text-left text-black hover:bg-gray-100">
                                     Download CV
                                 </a>
