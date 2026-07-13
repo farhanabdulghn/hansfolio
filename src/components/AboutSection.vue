@@ -7,7 +7,7 @@
             <div data-aos="flip-right">
                 <h2 class="text-4xl font-bold text-white text-left mb-8">{{ langs("titleEdu") }}</h2>
                 <div class="space-y-8 py-8">
-                    <div v-for="(education) in educations" :key="education.id"
+                    <div v-for="(education, index) in educations" :key="education.school"
                         class="flex items-center md:w-[80%] w-full p-5 rounded-xl bg-[#111a3e] shadow-lg border border-[#1f1641]">
                         <div class="w-1/4">
                             <img src="https://img.icons8.com/ios-glyphs/60/ffffff/graduation-cap--v1.png"
@@ -18,8 +18,8 @@
                                 class="text-2xl font-semibold uppercase text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary lg:text-xl">
                                 {{ education.school }}
                             </h3>
-                            <p class="text-white">{{ langs(education.program) }}</p>
-                            <p class="text-white">{{ education.year }}</p>
+                            <p class="text-white">{{ langs(`educations[${index}].title`) }}</p>
+                            <p class="text-white">{{ langs(`educations[${index}].years`) }}</p>
                         </div>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                 </p>
                 <div class="flex justify-center items-center pt-8">
                     <div class="grid grid-cols-3 gap-4 max-w-lg">
-                        <div v-for="stat in stats" :key="stat.id"
+                        <div v-for="stat in stats" :key="stat.label"
                             class="text-center rounded-xl bg-[#111a3e] shadow-lg border border-[#1f1641] p-3">
                             <h3 class="text-white font-bold text-xl sm:text-2xl lg:text-3xl">{{ stat.value }}</h3>
                             <p class="text-sm sm:text-base text-gray-300">{{ stat.label }}</p>
@@ -62,7 +62,7 @@ const yearsExperience = computed(() => {
     const hasNotPassed =
         now.getMonth() < startDate.getMonth() ||
         (now.getMonth() === startDate.getMonth() &&
-         now.getDate() < startDate.getDate());
+            now.getDate() < startDate.getDate());
 
     if (hasNotPassed) years--;
 
@@ -74,26 +74,20 @@ const error = ref(null);
 
 const educations = ref([
     {
-        id: 1,
         school: 'Politeknik LP3I',
-        program: 'educations[0]',
-        year: '2023',
     },
 ]);
 
 const stats = ref([
     {
-        id: 1,
         value: '+5',
         label: 'Happy Client',
     },
     {
-        id: 2,
         value: '+25',
         label: 'Projects',
     },
     {
-        id: 3,
         value: `+${yearsExperience.value}`,
         label: 'Years Experience',
     }
