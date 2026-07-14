@@ -76,27 +76,39 @@
             </div>
         </div>
     </section>
+    <transition enter-active-class="transition ease-out duration-200" enter-from-class="opacity-0"
+        enter-to-class="opacity-100" leave-active-class="transition ease-in duration-150" leave-from-class="opacity-100"
+        leave-to-class="opacity-0">
+        <div v-if="showModal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 p-4">
+            <transition enter-active-class="transition ease-out duration-200" enter-from-class="opacity-0 scale-95"
+                enter-to-class="opacity-100 scale-100" leave-active-class="transition ease-in duration-150"
+                leave-from-class="opacity-100 scale-100" leave-to-class="opacity-0 scale-95">
+                <div v-if="showModal"
+                    class="relative bg-[#111a3e] border border-[#1f1641] rounded-xl shadow-lg p-6 w-11/12 max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl overflow-y-auto">
+                    <button @click="closeModal"
+                        class="absolute top-4 right-4 text-[#adb7be] hover:text-white transition text-2xl leading-none">
+                        &times;
+                    </button>
 
-    <div v-if="showModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-        <div
-            class="bg-white rounded-lg shadow-lg p-6 w-11/12 max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl overflow-y-auto">
-            <h2 class="text-lg font-semibold mb-4 text-center">{{ langs("modal.title") }}</h2>
-            <p class="text-gray-600 mb-6 text-center">{{ langs("modal.subtitle") }}</p>
+                    <h2 class="text-lg font-semibold mb-2 text-center text-white">{{ langs("modal.title") }}</h2>
+                    <p class="text-[#adb7be] text-sm mb-6 text-center">{{ langs("modal.subtitle") }}</p>
 
-            <div class="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:justify-center">
-                <button v-for="(format, index) in fileFormats" :key="index" @click="downloadPortfolioFile(format)"
-                    :class="getButtonClass(format)"
-                    class="px-4 py-2 rounded text-white text-sm hover:bg-opacity-75 text-center">
-                    Download {{ format.toUpperCase() }}
-                </button>
-            </div>
+                    <div class="grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:justify-center">
+                        <button v-for="(format, index) in fileFormats" :key="index"
+                            @click="downloadPortfolioFile(format)" :class="getButtonClass(format)"
+                            class="px-4 py-3 rounded-xl bg-[#0d1330] border border-[#1f1641] text-sm font-semibold transition duration-200 hover:scale-[1.02] text-center">
+                            Download {{ format.toUpperCase() }}
+                        </button>
+                    </div>
 
-            <button @click="closeModal" class="mt-4 px-4 py-2 bg-gray-400 text-white rounded w-full hover:bg-gray-500">
-                {{ langs("modal.cancel") }}
-            </button>
+                    <button @click="closeModal"
+                        class="mt-6 px-4 py-2.5 rounded-full border border-[#adb7be] text-white text-sm transition hover:border-white w-full">
+                        {{ langs("modal.cancel") }}
+                    </button>
+                </div>
+            </transition>
         </div>
-    </div>
-
+    </transition>
 </template>
 <script setup>
 import Aos from 'aos';
@@ -155,18 +167,17 @@ const closeModal = () => {
 const getButtonClass = (format) => {
     switch (format) {
         case 'pdf':
-            return 'bg-red-500 hover:bg-red-600';
+            return 'text-red-400 hover:border-red-400';
         case 'svg':
-            return 'bg-green-500 hover:bg-green-600';
+            return 'text-green-400 hover:border-green-400';
         case 'pptx':
-            return 'bg-orange-500 hover:bg-orange-600';
+            return 'text-orange-400 hover:border-orange-400';
         case 'jpg':
-            return 'bg-yellow-500 hover:bg-yellow-600';
+            return 'text-yellow-400 hover:border-yellow-400';
         case 'png':
-            return 'bg-blue-500 hover:bg-blue-600';
+            return 'text-blue-400 hover:border-blue-400';
         default:
-            return 'bg-gray-400';
+            return 'text-gray-400 hover:border-gray-400';
     }
 };
-
 </script>
