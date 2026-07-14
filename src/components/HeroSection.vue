@@ -41,17 +41,22 @@
                                     <span class="pl-2 text-primary">Download Resume</span>
                                 </div>
                             </button>
-                            <div v-if="showMenu"
-                                class="absolute top-12 left-0 w-max bg-white border border-gray-200 shadow-lg rounded-lg z-50">
-                                <a href="/hansfolio/assets/resume.pdf" download="cv-FarhanAbdulGhani.pdf"
-                                    class="block px-4 py-2 w-full text-left text-black hover:bg-gray-100">
-                                    Download CV
-                                </a>
-                                <button @click="downloadPortfolio"
-                                    class="block px-4 py-2 w-full text-left hover:bg-gray-100">
-                                    Download Portfolio
-                                </button>
-                            </div>
+                            <transition enter-active-class="transition ease-out duration-150"
+                                enter-from-class="opacity-0 -translate-y-1" enter-to-class="opacity-100 translate-y-0"
+                                leave-active-class="transition ease-in duration-100"
+                                leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 -translate-y-1">
+                                <div v-if="showMenu"
+                                    class="absolute top-12 left-0 w-max rounded-xl bg-[#111a3e] border border-[#1f1641] shadow-lg overflow-hidden z-50">
+                                    <a href="/hansfolio/assets/resume.pdf" download="cv-FarhanAbdulGhani.pdf"
+                                        class="block px-4 py-2.5 w-full text-left text-white text-sm transition hover:bg-[#1a1650]">
+                                        Download CV
+                                    </a>
+                                    <button @click="downloadPortfolio"
+                                        class="block px-4 py-2.5 w-full text-left text-white text-sm transition hover:bg-[#1a1650]">
+                                        Download Portfolio
+                                    </button>
+                                </div>
+                            </transition>
                         </div>
                     </div>
                 </div>

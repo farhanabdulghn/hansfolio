@@ -70,7 +70,7 @@ const contacts = ref([
             return `mailto:${this.subtitle}`;
         },
     },
-     {
+    {
         id: '106562',
         title: 'Github',
         subtitle: 'farhanabdulghn',
@@ -78,7 +78,7 @@ const contacts = ref([
             return `https://github.com/${this.subtitle}`;
         }
     },
-     {
+    {
         id: '16733',
         title: 'Whatsapp',
         subtitle: '+6285117115655',
@@ -102,15 +102,6 @@ const contacts = ref([
             return `https://www.instagram.com/${this.subtitle.substring(1)}`;
         },
     },
-   
-    {
-        id: 'phOKFKYpe00C',
-        title: 'X',
-        subtitle: 'Farhan180202',
-        onclick() {
-            return `https://x.com/${this.subtitle}`;
-        }
-    },
     {
         id: '118467',
         title: 'Facebook',
@@ -119,6 +110,14 @@ const contacts = ref([
             return `https://www.facebook.com/${this.subtitle}`;
         }
     },
-   
+    {
+        id: 'phOKFKYpe00C',
+        title: 'X',
+        subtitle: 'Farhan180202',
+        onclick() {
+            return `https://x.com/${this.subtitle}`;
+        }
+    },
+
 ]);
 </script>
