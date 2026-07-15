@@ -18,11 +18,11 @@
                 </div>
                 <div class="pl-4 flex-1 min-w-0">
                     <h3 class="text-lg font-semibold text-white leading-snug">
-                        {{ langs(`list[${index}].title`) }}
+                        {{ langs(`certificates.${certificate.slug}.title`) }}
                     </h3>
                     <p class="text-[#ADB7BE] text-sm">{{ certificate.issuer }}</p>
                     <p class="text-[#ADB7BE] text-xs mt-1">
-                        {{ langs('issued') }} {{ langs(`list[${index}].issueDate`) }}
+                        {{ langs('issued') }} {{ langs(`certificates.${certificate.slug}.issueDate`) }}
                     </p>
                     <p v-if="certificate.id" class="text-[#ADB7BE] text-xs break-all">
                         {{ langs('credentialId') }} {{ certificate.id }}
@@ -52,24 +52,28 @@ const certificates = ref([
         issuer: 'Aestech',
         logo: `${logoBase}/companies/aestech.jpg`,
         credentialUrl: 'https://cert.aestech.co.id/f886ce0f-69f8-48ad-ae2f-de3e2498aaea?sig=CsuIZTFUpbR2-QtYorISscv5fL0XpgPRB1MS51sO55c',
+        slug: 'engineeringAward',
     },
     {
         id: '7cebc2f7-1a70c0-dcf4-56-08ae66c0bb3f',
         issuer: 'tixu.ai',
         logo: '',
         credentialUrl: 'https://tixu.ai/certificate/7cebc2f7-1a70c0-dcf4-56-08ae66c0bb3f',
+        slug: 'claudeVibeCoding',
     },
     {
         id: '53cd0974-1a70c0-de5e-55-b398aa46cdbf',
         issuer: 'tixu.ai',
         logo: '',
         credentialUrl: 'https://tixu.ai/certificate/53cd0974-1a70c0-de5e-55-b398aa46cdbf',
+        slug: 'claudeAdvancedWorkflows',
     },
     {
         id: '5ce75fbc-1a70c0-fad3-50-c4a69d0a2645',
         issuer: 'tixu.ai',
         logo: '',
         credentialUrl: 'https://tixu.ai/certificate/5ce75fbc-1a70c0-fad3-50-c4a69d0a2645',
+        slug: 'claudeCertification',
     },
 ]);
 

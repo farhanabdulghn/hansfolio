@@ -100,7 +100,6 @@
                             Download {{ format.toUpperCase() }}
                         </button>
                     </div>
-
                     <button @click="closeModal"
                         class="mt-6 px-4 py-2.5 rounded-full border border-[#adb7be] text-white text-sm transition hover:border-white w-full">
                         {{ langs("modal.cancel") }}

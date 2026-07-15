@@ -44,7 +44,7 @@
                                 {{ experience.role }}
                             </h3>
                             <p class="text-white">{{ experience.company }}</p>
-                            <p class="text-white">{{ langs(`period[${index}]`) }}</p>
+                            <p class="text-white">{{ langs(`periods.${experience.logoSlug}`) }}</p>
                         </div>
                     </a>
                 </div>
@@ -73,6 +73,7 @@ const buildExperience = ({ role, company, date, logoSlug, linkedinSlug }) => ({
     role,
     company,
     date,
+    logoSlug,
     logo: `${logoBase}/${logoSlug}.jpg`,
     url: `${linkedinBase}/${linkedinSlug}/`,
 });
