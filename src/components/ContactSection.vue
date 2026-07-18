@@ -23,26 +23,26 @@
             </div>
             <div
                 style="background: #111a3e; width: 100%; height: 400px; border-radius: 20px; overflow: hidden; border: 1px solid#111a3e; backdrop-filter: blur(9px); -webkit-backdrop-filter: blur(9px);">
-                <form class="flex flex-col p-4" data-aos="zoom-in-up">
+                <form class="flex flex-col p-4" data-aos="zoom-in-up" @submit.prevent="sendMessage">
                     <div class="mb-6">
                         <label for="email" class="text-white block mb-2 text-sm font-medium">email</label>
-                        <input type="email" id="email"
+                        <input type="email" id="email" v-model="form.email"
                             class="bg-[#111827] placeholder:[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
-                            placeholder="email@gmail.com" name="email">
+                            placeholder="email@gmail.com" name="email" required>
                     </div>
                     <div class="mb-6">
                         <label for="subject" class="text-white block mb-2 text-sm font-medium">Subject</label>
-                        <input type="subject" id="subject"
+                        <input type="text" id="subject" v-model="form.subject"
                             class="bg-[#111827] placeholder:[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
                             placeholder="subject" name="subject">
                     </div>
                     <div class="mb-6">
                         <label for="message" class="text-white block mb-2 text-sm font-medium">Message</label>
-                        <textarea id="Message"
+                        <textarea id="message" v-model="form.message"
                             class="bg-[#111827] placeholder:[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
-                            placeholder="Let's talk about..." name="Message"></textarea>
+                            placeholder="Let's talk about..." name="message" required></textarea>
                     </div>
-                    <button
+                    <button type="submit"
                         class="z-1 w-[100%!important] px-6 md:px-7 py-3 rounded-full sm:w-max flex justify-center text-white bg-primary border-2 border-transparent">
                         Send Message
                     </button>
@@ -56,18 +56,26 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { reactive, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 const langs = (key) => useI18n().t(`contactSection.${key}`);
+
+const myEmail = 'abgfarhan18@gmail.com';
+const gmailComposeBase = 'https://mail.google.com/mail/?view=cm&fs=1';
+
+const buildGmailUrl = ({ to, subject = '', body = '' }) => {
+    const params = new URLSearchParams({ to, su: subject, body });
+    return `${gmailComposeBase}&${params.toString()}`;
+};
 
 const contacts = ref([
     {
         id: '12623',
         title: 'Email',
-        subtitle: 'abgfarhan18@gmail.com',
+        subtitle: myEmail,
         onclick() {
-            return `mailto:${this.subtitle}`;
+            return buildGmailUrl({ to: this.subtitle });
         },
     },
     {
@@ -118,6 +126,22 @@ const contacts = ref([
             return `https://x.com/${this.subtitle}`;
         }
     },
-
 ]);
+
+const form = reactive({
+    email: '',
+    subject: '',
+    message: '',
+});
+
+const sendMessage = () => {
+    const body = `Dari: ${form.email}\n\n${form.message}`;
+    const url = buildGmailUrl({
+        to: myEmail,
+        subject: form.subject || `Pesan dari ${form.email}`,
+        body,
+    });
+
+    window.open(url, '_blank', 'noopener,noreferrer');
+};
 </script>
