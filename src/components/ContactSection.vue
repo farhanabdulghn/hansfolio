@@ -87,6 +87,14 @@ const contacts = ref([
         }
     },
     {
+        id: '17950',
+        title: 'Google Dev',
+        subtitle: 'farhanabdulghn',
+        onclick() {
+            return `http://g.dev/${this.subtitle}`;
+        }
+    },
+    {
         id: '16733',
         title: 'Whatsapp',
         subtitle: '+6285117115655',

@@ -8,7 +8,7 @@
     },
     "heroSection": {
         "hi": "Hi, I'm",
-        "desc": "a skilled Flutter Mobile Developer with expertise in building high-performance apps, specializing in clean architecture, Riverpod state management, and API integrations. Currently working at PT Aesthetic Technology Indonesia, I creates solutions for the beauty clinic industry, with plans for future healthcare sector expansion.",
+        "desc": "Flutter Mobile Developer focused on developing modern, scalable, and high-performance mobile applications. Experienced with Clean Architecture, Riverpod, BLoC, REST APIs, Firebase, and responsive UI development. Passionate about building reliable products with clean, maintainable code",
         "modal": {
             "title": "Choose File Format",
             "subtitle": "Please select the format for the portfolio file:",
@@ -52,7 +52,7 @@
         "periods": {
             "bigio": "Aug 2022 - Dec 2022",
             "konsulin": "Jan 2023 - Aug 2023",
-            "aestech": "Aug 2023 - Now"
+            "aestech": "Aug 2023 - Jul 2026"
         }
     },
     "latestProjectSection": {
