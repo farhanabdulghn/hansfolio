@@ -8,7 +8,8 @@
         </div>
         <div class="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 xl:px-16">
             <div class="mt-4 md:mt-0 text-left flex flex-col z-10 h-full w-[80%]">
-                <h2 class="text-4xl font-bold text-white text-left mb-4">{{ langs("titleSkill[0]") }}
+                <h2 class="text-4xl font-bold text-white text-left mb-4">
+                    {{ langs("titleSkill[0]") }}
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">{{
                         langs("titleSkill[1]") }}</span>
                 </h2>
@@ -25,8 +26,9 @@
                 </div>
             </div>
             <div data-aos="flip-left">
-                <h2 class="text-4xl font-bold text-white text-left mb-8 md:text-center md:mt-0 mt-8">{{
-                    langs("titleExperience") }}</h2>
+                <h2 class="text-4xl font-bold text-white text-left mb-8 md:text-center md:mt-0 mt-8">
+                    {{ langs("titleExperience") }}
+                </h2>
                 <div class="space-y-8 py-8" data-aos="fade-left">
                     <a v-for="(experience, index) in experiences" :key="experience.company" :href="experience.url"
                         target="_blank" rel="noopener noreferrer"
@@ -44,7 +46,9 @@
                                 {{ experience.role }}
                             </h3>
                             <p class="text-white">{{ experience.company }}</p>
-                            <p class="text-white">{{ langs(`periods.${experience.logoSlug}`) }}</p>
+                            <p class="text-white">
+                                {{ langs(`periods.${experience.logoSlug}`) }}
+                            </p>
                         </div>
                     </a>
                 </div>
@@ -53,26 +57,45 @@
     </section>
 </template>
 
-<script setup>
-import { ref } from 'vue';
-import { useI18n } from 'vue-i18n';
+<script setup lang="ts">
+import { ref } from "vue";
+import { useI18n } from "vue-i18n";
 
-const langs = (key) => useI18n().t(`experienceAndSkillSection.${key}`);
+interface Experience {
+    role: string;
+    company: string;
+    logoSlug: string;
+    logo: string;
+    url: string;
+}
+
+interface BuildExperienceParams {
+    role: string;
+    company: string;
+    logoSlug: string;
+    linkedinSlug: string;
+}
+
+const langs = (key: string) => useI18n().t(`experienceAndSkillSection.${key}`);
 
 const skills = ref([
-    { name: 'Dart', width: '98%' },
-    { name: 'HTML & CSS', width: '85%' },
-    { name: 'JavaScript', width: '70%' },
-    { name: 'PHP', width: '60%' },
+    { name: "Dart", width: "98%" },
+    { name: "HTML & CSS", width: "85%" },
+    { name: "JavaScript", width: "70%" },
+    { name: "PHP", width: "60%" },
 ]);
 
-const logoBase = '/hansfolio/assets/icons/companies';
-const linkedinBase = 'https://www.linkedin.com/company';
+const logoBase = "/hansfolio/assets/icons/companies";
+const linkedinBase = "https://www.linkedin.com/company";
 
-const buildExperience = ({ role, company, date, logoSlug, linkedinSlug }) => ({
+const buildExperience = ({
     role,
     company,
-    date,
+    logoSlug,
+    linkedinSlug,
+}: BuildExperienceParams): Experience => ({
+    role,
+    company,
     logoSlug,
     logo: `${logoBase}/${logoSlug}.jpg`,
     url: `${linkedinBase}/${linkedinSlug}/`,
@@ -80,22 +103,22 @@ const buildExperience = ({ role, company, date, logoSlug, linkedinSlug }) => ({
 
 const experiences = ref([
     buildExperience({
-        role: 'Intern Full-stack Developer',
-        company: 'PT. Bejana Investidata Globalindo',
-        logoSlug: 'bigio',
-        linkedinSlug: 'bejanainovasi',
+        role: "Intern Full-stack Developer",
+        company: "PT. Bejana Investidata Globalindo",
+        logoSlug: "bigio",
+        linkedinSlug: "bejanainovasi",
     }),
     buildExperience({
-        role: 'Mobile Developer',
-        company: 'PT. Ruang Konsul Indonesia',
-        logoSlug: 'konsulin',
-        linkedinSlug: 'pt-ruang-konsul-indonesia',
+        role: "Mobile Developer",
+        company: "PT. Ruang Konsul Indonesia",
+        logoSlug: "konsulin",
+        linkedinSlug: "pt-ruang-konsul-indonesia",
     }),
     buildExperience({
-        role: 'Mobile Developer',
-        company: 'PT. Aesthetic Teknologi Indonesia',
-        logoSlug: 'aestech',
-        linkedinSlug: 'aestech-official',
+        role: "Mobile Developer",
+        company: "PT. Aesthetic Teknologi Indonesia",
+        logoSlug: "aestech",
+        linkedinSlug: "aestech-official",
     }),
 ]);
 </script>
