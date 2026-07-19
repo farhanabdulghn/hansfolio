@@ -97,9 +97,9 @@ const contacts = ref([
     {
         id: '8808',
         title: 'Linkedin',
-        subtitle: 'www.linkedin.com',
+        subtitle: 'farhanabdulghn',
         onclick() {
-            return `https://${this.subtitle}/in/farhan-ab-g-74001a260/`;
+            return `https://www.linkedin.com/in/${this.subtitle}/`;
         },
     },
     {
