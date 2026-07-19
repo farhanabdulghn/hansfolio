@@ -52,7 +52,7 @@
             </h3>
             <p class="text-[#ADB7BE]">{{ langs(`projectDescriptions.${project.slug}`) }}</p>
             <div class="flex flex-wrap p-2.5">
-              <div v-for="technology in project.technologies" :key="technology.id"
+              <div v-for="technology in project.technologies" :key="technology"
                 class="text-center ml-1 mt-1 rounded-3xl bg-[#111827]" style="
                   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
                   border: 1px solid #111827;
@@ -113,19 +113,36 @@
   </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed, ref } from "vue";
 import { useI18n } from "vue-i18n";
 
-const langs = (key) => useI18n().t(`latestProjectSection.${key}`);
-const previewProject = ref(null);
+interface Project {
+  category: 'Mobile App' | 'Web Development';
+  image: string;
+  title: string;
+  technologies: string[];
+  webURL: string;
+  slug: string;
+  order: number;
+}
+
+interface DragPosition {
+  x: number;
+  y: number;
+}
+
+type CategoryFilter = 'all' | 'Mobile App' | 'Web Development';
+
+const langs = (key: string) => useI18n().t(`latestProjectSection.${key}`);
+const previewProject = ref<Project | null>(null);
 const zoomLevel = ref(1);
 const translateX = ref(0);
 const translateY = ref(0);
 const isDragging = ref(false);
-const dragStart = ref({ x: 0, y: 0 });
+const dragStart = ref<DragPosition>({ x: 0, y: 0 });
 
-const openPreview = (project) => {
+const openPreview = (project: Project) => {
   previewProject.value = project;
   zoomLevel.value = 1;
   translateX.value = 0;
@@ -155,7 +172,7 @@ const zoomReset = () => {
   translateY.value = 0;
 };
 
-const onWheel = (e) => {
+const onWheel = (e: WheelEvent) => {
   e.preventDefault();
 
   if (e.ctrlKey) {
@@ -168,7 +185,7 @@ const onWheel = (e) => {
   }
 };
 
-const onMouseDown = (e) => {
+const onMouseDown = (e: MouseEvent) => {
   if (zoomLevel.value <= 1) return;
   isDragging.value = true;
   dragStart.value = {
@@ -177,7 +194,7 @@ const onMouseDown = (e) => {
   };
 };
 
-const onMouseMove = (e) => {
+const onMouseMove = (e: MouseEvent) => {
   if (!isDragging.value) return;
   translateX.value = e.clientX - dragStart.value.x;
   translateY.value = e.clientY - dragStart.value.y;
@@ -187,57 +204,59 @@ const onMouseUp = () => {
   isDragging.value = false;
 };
 
-const projects = ref(
-  [
-    {
-      category: "Mobile App",
-      image: "/hansfolio/assets/images/projects/quran_al_barkah.webp",
-      title: "Quran Al Barkah",
-      technologies: ["Flutter", "Android"],
-      webURL:
-        "https://play.google.com/store/apps/details?id=com.gridiyansapps.quran_al_barkah&pcampaignid=web_share",
-      slug: 'quranAlBarkah',
-    },
-    {
-      category: "Mobile App",
-      image: "/hansfolio/assets/images/projects/aesline.webp",
-      title: "AESLINE DISPLAY",
-      technologies: ["Flutter", "Android TV", "Google TV"],
-      webURL:
-        "https://play.google.com/store/apps/details?id=io.aestech.aesline&pcampaignid=web_share",
-      slug: 'aeslineDisplay',
-    },
-    {
-      category: "Mobile App",
-      image: "/hansfolio/assets/images/projects/qr_guest_book.webp",
-      title: "QR Guest Book",
-      technologies: ["Flutter", "Android"],
-      webURL: "",
-      slug: 'qrGuestBook',
-    },
-    {
-      category: "Mobile App",
-      image: "/hansfolio/assets/images/projects/benings_app.webp",
-      title: "Benings App",
-      technologies: ["Flutter", "Android", "IOS"],
-      webURL: "",
-      slug: 'beningsApp',
-    },
-    {
-      category: "Mobile App",
-      image: "/hansfolio/assets/images/projects/aestech.webp",
-      title: "Aestech Customer (Unofficial Name)",
-      technologies: ["Flutter", "Android", "IOS"],
-      webURL: "",
-      slug: 'aestechCustomer',
-    },
-  ].map((item, index) => ({
+const rawProjects: Omit<Project, 'order'>[] = [
+  {
+    category: "Mobile App",
+    image: "/hansfolio/assets/images/projects/quran_al_barkah.webp",
+    title: "Quran Al Barkah",
+    technologies: ["Flutter", "Android"],
+    webURL:
+      "https://play.google.com/store/apps/details?id=com.gridiyansapps.quran_al_barkah&pcampaignid=web_share",
+    slug: 'quranAlBarkah',
+  },
+  {
+    category: "Mobile App",
+    image: "/hansfolio/assets/images/projects/aesline.webp",
+    title: "AESLINE DISPLAY",
+    technologies: ["Flutter", "Android TV", "Google TV"],
+    webURL:
+      "https://play.google.com/store/apps/details?id=io.aestech.aesline&pcampaignid=web_share",
+    slug: 'aeslineDisplay',
+  },
+  {
+    category: "Mobile App",
+    image: "/hansfolio/assets/images/projects/qr_guest_book.webp",
+    title: "QR Guest Book",
+    technologies: ["Flutter", "Android"],
+    webURL: "",
+    slug: 'qrGuestBook',
+  },
+  {
+    category: "Mobile App",
+    image: "/hansfolio/assets/images/projects/benings_app.webp",
+    title: "Benings App",
+    technologies: ["Flutter", "Android", "IOS"],
+    webURL: "",
+    slug: 'beningsApp',
+  },
+  {
+    category: "Mobile App",
+    image: "/hansfolio/assets/images/projects/aestech.webp",
+    title: "Aestech Customer (Unofficial Name)",
+    technologies: ["Flutter", "Android", "IOS"],
+    webURL: "",
+    slug: 'aestechCustomer',
+  },
+];
+
+const projects = ref<Project[]>(
+  rawProjects.map((item, index) => ({
     ...item,
     order: index,
   })),
 );
 
-const selectedCategory = ref("all");
+const selectedCategory = ref<CategoryFilter>("all");
 const filteredProjects = computed(() => {
   if (selectedCategory.value === "all") {
     return projects.value;

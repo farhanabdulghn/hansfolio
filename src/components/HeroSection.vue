@@ -109,6 +109,7 @@
         </div>
     </transition>
 </template>
+
 <script setup>
 import Aos from 'aos';
 import 'aos/dist/aos.css';

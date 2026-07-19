@@ -66,13 +66,29 @@
     </header>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, computed } from 'vue';
 import { useI18n } from 'vue-i18n';
+import type { ObjectDirective } from 'vue';
 
-const langs = (key) => useI18n().t(`navBar.${key}`);
+interface MenuItem {
+    name: string;
+    href: string;
+}
 
-const menus = ref([
+interface Language {
+    code: string;
+    name: string;
+    flag: string;
+}
+
+interface ClickOutsideElement extends HTMLElement {
+    __clickOutsideHandler__?: (event: MouseEvent) => void;
+}
+
+const langs = (key: string) => useI18n().t(`navBar.${key}`);
+
+const menus = ref < MenuItem[] > ([
     { name: 'service', href: '#services' },
     { name: 'aboutMe', href: '#about' },
     { name: 'skills', href: '#skills' },
@@ -81,24 +97,24 @@ const menus = ref([
 ]);
 
 const isMenuOpen = ref(false);
-const scrollToSection = (href) => {
+const scrollToSection = (href: string) => {
     isMenuOpen.value = false;
     const section = document.querySelector(href);
     if (section) {
-        section.scrollIntoView({ behavior: 'smooth' })
+        section.scrollIntoView({ behavior: 'smooth' });
     }
-}
+};
 
 const { locale } = useI18n();
 
-const languages = ref([
+const languages = ref < Language[] > ([
     { code: 'en', name: 'English', flag: '🇬🇧' },
     { code: 'id', name: 'Bahasa Indonesia', flag: '🇮🇩' },
 ]);
 
 const currentLocale = computed({
-    get: () => locale.value,
-    set: (newLocale) => {
+    get: (): string => locale.value,
+    set: (newLocale: string) => {
         locale.value = newLocale;
     },
 });
@@ -109,7 +125,7 @@ const currentLanguage = computed(() =>
 
 const isLangOpen = ref(false);
 
-const selectLocale = (code) => {
+const selectLocale = (code: string) => {
     currentLocale.value = code;
     isLangOpen.value = false;
 };
@@ -118,17 +134,19 @@ const closeLangMenu = () => {
     isLangOpen.value = false;
 };
 
-const vClickOutside = {
+const vClickOutside: ObjectDirective<ClickOutsideElement, (event: MouseEvent) => void> = {
     mounted(el, binding) {
-        el.__clickOutsideHandler__ = (event) => {
-            if (!(el === event.target || el.contains(event.target))) {
+        el.__clickOutsideHandler__ = (event: MouseEvent) => {
+            if (!(el === event.target || el.contains(event.target as Node))) {
                 binding.value(event);
             }
         };
         document.addEventListener('click', el.__clickOutsideHandler__);
     },
     unmounted(el) {
-        document.removeEventListener('click', el.__clickOutsideHandler__);
+        if (el.__clickOutsideHandler__) {
+            document.removeEventListener('click', el.__clickOutsideHandler__);
+        }
     },
 };
 </script>

@@ -1,99 +1,92 @@
 {
-    "navBar": {
-        "service": "Layanan",
-        "aboutMe": "Tentang saya",
-        "skills": "Skill",
-        "projects": "Project",
-        "contact": "Kontak"
-    },
-    "heroSection": {
-        "hi": "Hallo, saya",
-        "desc": "Flutter Mobile Developer dengan keahlian dalam membangun aplikasi mobile modern yang scalable dan berkinerja tinggi. Berpengalaman menggunakan Clean Architecture, Riverpod, BLoC, REST API, Firebase, serta mengembangkan antarmuka yang responsif dan mudah dipelihara. Berkomitmen menghadirkan solusi yang efisien, andal, dan berkualitas",
-        "modal": {
-            "title": "Pilih Format File",
-            "subtitle": "Pilih format untuk file portofolio:",
-            "cancel": "Batal"
-        }
-    },
-    "serviceSection": {
-        "title": "Layanan Saya",
-        "list": [
-            {
-                "name": "Pengembang Mobile",
-                "description": "Mengembangkan aplikasi mobile menggunakan Flutter untuk pengembangan lintas platform."
-            },
-            {
-                "name": "Pengembangan Web",
-                "description": "Membangun aplikasi web modern menggunakan Vue.js untuk antarmuka pengguna yang dinamis."
-            }
-        ]
-    },
-    "aboutSection": {
-        "titleEdu": "Pendidikan Saya",
-        "titleAbout": [
-            "Lebih lanjut",
-            "tentang",
-            "saya"
-        ],
-        "educations": [
-            {
-                "title": "D3 - Manajemen Informatika",
-                "years": "Aug 2020 - Des 2023"
-            }
-        ],
-        "desc": "Saya adalah seorang profesional di bidang teknologi informasi dengan pengalaman dalam pengembangan perangkat lunak. Sejak memulai karir saya di dunia IT, saya telah terlibat dalam berbagai proyek yang membantu perusahaan dan klien dalam meningkatkan efisiensi operasional melalui solusi berbasis teknologi. Saya sangat bersemangat untuk terus belajar dan mengembangkan diri, serta memberikan kontribusi terbaik dalam setiap proyek yang saya kerjakan. Dengan lebih dari 3+ tahun pengalaman, saya memiliki keterampilan dalam manajemen proyek, pengembangan perangkat lunak, dan penerapan solusi teknologi yang inovatif."
-    },
-    "experienceAndSkillSection": {
-        "titleSkill": [
-            "Kemampuan",
-            "Saya"
-        ],
-        "titleExperience": "Pengalaman Saya",
-        "period": [
-            "Aug 2022 - Des 2022",
-            "Jan 2023 - Aug 2023",
-            "Aug 2023 - Jul 2026"
-        ]
-    },
-    "latestProjectSection": {
-        "title": "Project Terbaru Saya",
-        "projects": {
-            "desc": [
-                "Aplikasi Al-Qur’an digital yang menyediakan fitur lengkap seperti terjemahan, murotal, jadwal sholat, dan arah kiblat untuk menunjang ibadah sehari-hari, serta telah dipublikasikan di Google Play Store",
-                "Aplikasi antrian digital untuk Android/Google TV yang menampilkan nomor antrian secara real-time dengan berbagai jenis antrian, dilengkapi pemanggilan antrian dengan audio otomatis, serta mendukung penayangan konten dari YouTube maupun video lokal (storage/flashdisk), dan telah dipublikasikan di Google Play Store.",
-                "Aplikasi buku tamu digital berbasis QR yang memungkinkan pengguna melakukan check-in dengan scan QR, input manual, serta mendukung fitur pencetakan data tamu untuk kebutuhan dokumentasi",
-                "Aplikasi bisnis yang digunakan untuk mengelola Purchase Order (PO), Sales Order (SO), Delivery Order, serta tracking resi secara terintegrasi untuk mempermudah proses operasional dan distribusi.",
-                "Aplikasi layanan pelanggan yang memungkinkan pengguna melakukan pemesanan produk, booking layanan, mengambil antrian digital, melacak lokasi terdekat, mengunduh member digital, serta menerima notifikasi secara real-time dalam satu platform terintegrasi."
-            ]
-        },
-        "all": "semua"
-    },
-    "certificateSection": {
-        "title": "Lisensi & Sertifikasi",
-        "issued": "Diterbitkan",
-        "credentialId": "ID Kredensial",
-        "showCredential": "Lihat kredensial",
-        "list": [
-            {
-                "title": "Penghargaan Pertumbuhan Profesional Engineering",
-                "issueDate": "Jul 2026"
-            },
-            {
-                "title": "Claude Vibe Coding",
-                "issueDate": "Jul 2026"
-            },
-            {
-                "title": "Claude Advanced Workflows",
-                "issueDate": "Jul 2026"
-            },
-            {
-                "title": "Claude",
-                "issueDate": "Jul 2026"
-            }
-        ]
-    },
-    "contactSection": {
-        "title": "Mari Terhubung",
-        "desc": "Saya di sini untuk membantu. Jika Anda memiliki pertanyaan atau ingin mendiskusikan bagaimana kita dapat berkolaborasi, jangan ragu untuk menghubungi saya melalui salah satu opsi di bawah ini. Saya selalu siap untuk mendengarkan dan memberikan solusi terbaik untuk kebutuhan Anda. Hubungi saya sekarang, saya ingin sekali mendengar cerita Anda!"
+  "navBar": {
+    "service": "Layanan",
+    "aboutMe": "Tentang saya",
+    "skills": "Skill",
+    "projects": "Project",
+    "contact": "Kontak"
+  },
+  "heroSection": {
+    "hi": "Hallo, saya",
+    "desc": "Flutter Mobile Developer dengan keahlian dalam membangun aplikasi mobile modern yang scalable dan berkinerja tinggi. Berpengalaman menggunakan Clean Architecture, Riverpod, BLoC, REST API, Firebase, serta mengembangkan antarmuka yang responsif dan mudah dipelihara. Berkomitmen menghadirkan solusi yang efisien, andal, dan berkualitas",
+    "modal": {
+      "title": "Pilih Format File",
+      "subtitle": "Pilih format untuk file portofolio:",
+      "cancel": "Batal"
     }
+  },
+  "serviceSection": {
+    "title": "Layanan Saya",
+    "list": [
+      {
+        "name": "Pengembang Mobile",
+        "description": "Mengembangkan aplikasi mobile menggunakan Flutter untuk pengembangan lintas platform."
+      },
+      {
+        "name": "Pengembangan Web",
+        "description": "Membangun aplikasi web modern menggunakan Vue.js untuk antarmuka pengguna yang dinamis."
+      }
+    ]
+  },
+  "aboutSection": {
+    "titleEdu": "Pendidikan Saya",
+    "titleAbout": ["Lebih lanjut", "tentang", "saya"],
+    "educations": [
+      {
+        "title": "D3 - Manajemen Informatika",
+        "years": "Aug 2020 - Des 2023"
+      }
+    ],
+    "desc": "Saya adalah seorang profesional di bidang teknologi informasi dengan pengalaman dalam pengembangan perangkat lunak. Sejak memulai karir saya di dunia IT, saya telah terlibat dalam berbagai proyek yang membantu perusahaan dan klien dalam meningkatkan efisiensi operasional melalui solusi berbasis teknologi. Saya sangat bersemangat untuk terus belajar dan mengembangkan diri, serta memberikan kontribusi terbaik dalam setiap proyek yang saya kerjakan. Dengan lebih dari 3+ tahun pengalaman, saya memiliki keterampilan dalam manajemen proyek, pengembangan perangkat lunak, dan penerapan solusi teknologi yang inovatif."
+  },
+  "experienceAndSkillSection": {
+    "titleSkill": ["Kemampuan", "Saya"],
+    "titleExperience": "Pengalaman Saya",
+    "periods": {
+      "bigio": "Aug 2022 - Des 2022",
+      "konsulin": "Jan 2023 - Aug 2023",
+      "aestech": "Aug 2023 - Jul 2026"
+    }
+  },
+  "latestProjectSection": {
+    "title": "Project Terbaru Saya",
+    "projects": {
+      "desc": [
+        "Aplikasi Al-Qur’an digital yang menyediakan fitur lengkap seperti terjemahan, murotal, jadwal sholat, dan arah kiblat untuk menunjang ibadah sehari-hari, serta telah dipublikasikan di Google Play Store",
+        "Aplikasi antrian digital untuk Android/Google TV yang menampilkan nomor antrian secara real-time dengan berbagai jenis antrian, dilengkapi pemanggilan antrian dengan audio otomatis, serta mendukung penayangan konten dari YouTube maupun video lokal (storage/flashdisk), dan telah dipublikasikan di Google Play Store.",
+        "Aplikasi buku tamu digital berbasis QR yang memungkinkan pengguna melakukan check-in dengan scan QR, input manual, serta mendukung fitur pencetakan data tamu untuk kebutuhan dokumentasi",
+        "Aplikasi bisnis yang digunakan untuk mengelola Purchase Order (PO), Sales Order (SO), Delivery Order, serta tracking resi secara terintegrasi untuk mempermudah proses operasional dan distribusi.",
+        "Aplikasi layanan pelanggan yang memungkinkan pengguna melakukan pemesanan produk, booking layanan, mengambil antrian digital, melacak lokasi terdekat, mengunduh member digital, serta menerima notifikasi secara real-time dalam satu platform terintegrasi."
+      ]
+    },
+    "all": "semua"
+  },
+  "certificateSection": {
+    "title": "Lisensi & Sertifikasi",
+    "issued": "Diterbitkan",
+    "credentialId": "ID Kredensial",
+    "showCredential": "Lihat kredensial",
+    "list": [
+      {
+        "title": "Penghargaan Pertumbuhan Profesional Engineering",
+        "issueDate": "Jul 2026"
+      },
+      {
+        "title": "Claude Vibe Coding",
+        "issueDate": "Jul 2026"
+      },
+      {
+        "title": "Claude Advanced Workflows",
+        "issueDate": "Jul 2026"
+      },
+      {
+        "title": "Claude",
+        "issueDate": "Jul 2026"
+      }
+    ]
+  },
+  "contactSection": {
+    "title": "Mari Terhubung",
+    "desc": "Saya di sini untuk membantu. Jika Anda memiliki pertanyaan atau ingin mendiskusikan bagaimana kita dapat berkolaborasi, jangan ragu untuk menghubungi saya melalui salah satu opsi di bawah ini. Saya selalu siap untuk mendengarkan dan memberikan solusi terbaik untuk kebutuhan Anda. Hubungi saya sekarang, saya ingin sekali mendengar cerita Anda!"
+  }
 }

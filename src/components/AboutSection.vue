@@ -47,11 +47,14 @@
     </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 
-const langs = (key) => useI18n().t(`aboutSection.${key}`);
+interface Education { school: string; }
+interface Stat { value: string; label: string; }
+
+const langs = (key: string) => useI18n().t(`aboutSection.${key}`);
 
 const startDate = new Date(2022, 8);
 
@@ -68,17 +71,12 @@ const yearsExperience = computed(() => {
 
     return years;
 });
-const data = ref(null);
-const loading = ref(true);
-const error = ref(null);
 
-const educations = ref([
-    {
-        school: 'Politeknik LP3I',
-    },
-]);
+const educations = ref<Education[]>([
+    { school: 'Politeknik LP3I' },
+])
 
-const stats = ref([
+const stats = ref<Stat[]>([
     {
         value: '+5',
         label: 'Happy Client',

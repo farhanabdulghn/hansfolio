@@ -24,7 +24,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { defineAsyncComponent } from "vue";
 import HeroSection from "./components/HeroSection.vue";
 import ServiceSection from "./components/ServiceSection.vue";

@@ -28,13 +28,15 @@
     </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 
-const langs = (key) => useI18n().t(`serviceSection.${key}`);
+interface Service { icon: string; name: string; slug: string; }
 
-const services = ref([
+const langs = (key: string) => useI18n().t(`serviceSection.${key}`);
+
+const services = ref<Service[]>([
     {
         icon: 'https://img.icons8.com/?size=100&id=qTi7dvhQWqxW&format=png&color=ffffff',
         name: 'Mobile Developer',

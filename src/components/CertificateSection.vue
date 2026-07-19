@@ -45,14 +45,6 @@
 import { reactive, ref } from "vue";
 import { useI18n } from "vue-i18n";
 
-interface Certificate {
-    id: string;
-    issuer: string;
-    logo: string;
-    credentialUrl: string;
-    slug: string;
-}
-
 const langs = (key: string) => useI18n().t(`certificateSection.${key}`);
 
 const logoBase = "/hansfolio/assets/icons";

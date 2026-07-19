@@ -55,26 +55,47 @@
     </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { reactive, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 
-const langs = (key) => useI18n().t(`contactSection.${key}`);
+interface Contact {
+    id: string;
+    title: string;
+    subtitle: string;
+    icon: string;
+    onclick(this: Contact): string;
+}
+
+interface GmailUrlParams {
+    to: string;
+    subject?: string;
+    body?: string;
+}
+
+interface ContactForm {
+    email: string;
+    subject: string;
+    message: string;
+}
+
+const langs = (key: string) => useI18n().t(`contactSection.${key}`);
 
 const myEmail = 'abgfarhan18@gmail.com';
 const gmailComposeBase = 'https://mail.google.com/mail/?view=cm&fs=1';
 
-const buildGmailUrl = ({ to, subject = '', body = '' }) => {
+const buildGmailUrl = ({ to, subject = '', body = '' }: GmailUrlParams): string => {
     const params = new URLSearchParams({ to, su: subject, body });
     return `${gmailComposeBase}&${params.toString()}`;
 };
 
-const contacts = ref([
+const contacts = ref < Contact[] > ([
     {
         id: '12623',
         title: 'Email',
         subtitle: myEmail,
-        onclick() {
+        icon: 'email',
+        onclick(): string {
             return buildGmailUrl({ to: this.subtitle });
         },
     },
@@ -82,7 +103,8 @@ const contacts = ref([
         id: '106562',
         title: 'Github',
         subtitle: 'farhanabdulghn',
-        onclick() {
+        icon: 'github',
+        onclick(): string {
             return `https://github.com/${this.subtitle}`;
         }
     },
@@ -90,7 +112,8 @@ const contacts = ref([
         id: '17950',
         title: 'Google Dev',
         subtitle: 'farhanabdulghn',
-        onclick() {
+        icon: 'google-developers',
+        onclick(): string {
             return `http://g.dev/${this.subtitle}`;
         }
     },
@@ -98,7 +121,8 @@ const contacts = ref([
         id: '16733',
         title: 'Whatsapp',
         subtitle: '+6285117115655',
-        onclick() {
+        icon: 'whatsapp',
+        onclick(): string {
             return `https://wa.me/${this.subtitle}`;
         }
     },
@@ -106,7 +130,8 @@ const contacts = ref([
         id: '8808',
         title: 'Linkedin',
         subtitle: 'farhanabdulghn',
-        onclick() {
+        icon: 'linkedin',
+        onclick(): string {
             return `https://www.linkedin.com/in/${this.subtitle}/`;
         },
     },
@@ -114,7 +139,8 @@ const contacts = ref([
         id: '32309',
         title: 'Instagram',
         subtitle: '@farhanabdulghn',
-        onclick() {
+        icon: 'instagram-new',
+        onclick(): string {
             return `https://www.instagram.com/${this.subtitle.substring(1)}`;
         },
     },
@@ -122,7 +148,8 @@ const contacts = ref([
         id: '118467',
         title: 'Facebook',
         subtitle: 'farhan.a.ghani.90',
-        onclick() {
+        icon: 'facebook-new',
+        onclick(): string {
             return `https://www.facebook.com/${this.subtitle}`;
         }
     },
@@ -130,19 +157,20 @@ const contacts = ref([
         id: 'phOKFKYpe00C',
         title: 'X',
         subtitle: 'Farhan180202',
-        onclick() {
+        icon: 'twitterx',
+        onclick(): string {
             return `https://x.com/${this.subtitle}`;
         }
     },
 ]);
 
-const form = reactive({
+const form = reactive < ContactForm > ({
     email: '',
     subject: '',
     message: '',
 });
 
-const sendMessage = () => {
+const sendMessage = (): void => {
     const body = `Dari: ${form.email}\n\n${form.message}`;
     const url = buildGmailUrl({
         to: myEmail,
