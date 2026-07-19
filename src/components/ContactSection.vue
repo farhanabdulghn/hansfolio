@@ -89,7 +89,7 @@ const buildGmailUrl = ({ to, subject = '', body = '' }: GmailUrlParams): string 
     return `${gmailComposeBase}&${params.toString()}`;
 };
 
-const contacts = ref < Contact[] > ([
+const contacts = ref<Contact[]>([
     {
         id: '12623',
         title: 'Email',
@@ -164,7 +164,7 @@ const contacts = ref < Contact[] > ([
     },
 ]);
 
-const form = reactive < ContactForm > ({
+const form = reactive<ContactForm>({
     email: '',
     subject: '',
     message: '',
