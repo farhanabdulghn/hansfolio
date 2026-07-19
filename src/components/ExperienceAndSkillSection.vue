@@ -2,8 +2,8 @@
     <section class="text-white mt-18" id="skills">
         <div class="relative right-0 top-[110rem] h-full w-full justify-end">
             <span class="flex opacity-20">
-                <span class="w-16 h-32 rounded-1-full flex bg-primary blur-2xl"></span>
-                <span class="w-16 h-32 rounded-1-full flex bg-[#f88fc2] blur-2xl mt-14"></span>
+                <span class="w-16 h-32 rounded-full flex bg-primary blur-2xl"></span>
+                <span class="w-16 h-32 rounded-full flex bg-[#f88fc2] blur-2xl mt-14"></span>
             </span>
         </div>
         <div class="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 xl:px-16">
@@ -20,7 +20,7 @@
                         <h3 class="text-2xl font-bold text-white">{{ skill.width }}</h3>
                     </div>
                     <div class="mt-2 h-1 w-full bg-[#131d30] rounded-full">
-                        <div class="h-1 rounded-full bg-primary" :style="`width :${skill.width}`"></div>
+                        <div class="h-1 rounded-full bg-primary" :style="{ width: skill.width }"></div>
                     </div>
                 </div>
             </div>
@@ -60,7 +60,7 @@ import { useI18n } from 'vue-i18n';
 const langs = (key) => useI18n().t(`experienceAndSkillSection.${key}`);
 
 const skills = ref([
-    { name: 'Dart', width: '96%' },
+    { name: 'Dart', width: '98%' },
     { name: 'HTML & CSS', width: '85%' },
     { name: 'JavaScript', width: '70%' },
     { name: 'PHP', width: '60%' },
