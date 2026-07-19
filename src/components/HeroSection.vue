@@ -110,41 +110,41 @@
     </transition>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import { ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 
+type FileFormat = 'pdf' | 'svg' | 'pptx' | 'jpg' | 'png';
+type LangCode = 'en' | 'id';
 
 const { locale } = useI18n();
 
 Aos.init();
 
-const showMenu = ref(false);
-const showModal = ref(false);
-const fileFormats = ['pdf', 'svg', 'pptx', 'jpg', 'png'];
+const showMenu = ref<boolean>(false);
+const showModal = ref<boolean>(false);
+const fileFormats = ref<FileFormat[]>(['pdf', 'svg', 'pptx', 'jpg', 'png']);
 
-const langs = (key) => useI18n().t(`heroSection.${key}`);
+const langs = (key: string): string => useI18n().t(`heroSection.${key}`);
 
-const downloadPortfolio = () => {
+const downloadPortfolio = (): void => {
     showModal.value = true;
 };
 
-
-
-const downloadPortfolioFile = (format) => {
-    const lang = locale.value === "id" ? "id" : "en";
+const downloadPortfolioFile = (format: FileFormat): void => {
+    const lang: LangCode = locale.value === 'id' ? 'id' : 'en';
 
     console.info(lang);
-    let fileName;
+    let fileName: string;
 
-    if (format === "pptx" || format === "pdf") {
+    if (format === 'pptx' || format === 'pdf') {
         fileName = `hansfolio-${lang}.${format}`;
-    } else if (["png", "svg", "jpg"].includes(format)) {
+    } else if (['png', 'svg', 'jpg'].includes(format)) {
         fileName = `hansfolio-${lang}-${format}.zip`;
     } else {
-        console.error("Unsupported format!");
+        console.error('Unsupported format!');
         return;
     }
 
@@ -158,13 +158,11 @@ const downloadPortfolioFile = (format) => {
     closeModal();
 };
 
-
-
-const closeModal = () => {
+const closeModal = (): void => {
     showModal.value = false;
 };
 
-const getButtonClass = (format) => {
+const getButtonClass = (format: FileFormat): string => {
     switch (format) {
         case 'pdf':
             return 'text-red-400 hover:border-red-400';
