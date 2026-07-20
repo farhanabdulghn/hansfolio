@@ -14,4 +14,4 @@ Welcome to my portfolio repository! This is my personal portfolio website built 
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone https://github.com/hansss18/hansfolio.git
+   git clone https://github.com/farhanabdulghn/hansfolio.git
