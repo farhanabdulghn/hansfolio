@@ -1,5 +1,5 @@
 <template>
-    <section class="text-white mt-18" id="about">
+    <section class="text-white mt-20" id="about">
         <div class="absolute z-0 top-[93rem] inset-x-0 h-64 flex items-start">
             <div class="h-24 w-64 bg-gradient-to-br from-primary via-secondary blur-2xl to-[#570cac] opacity-20"></div>
         </div>
@@ -10,8 +10,11 @@
                     <div v-for="(education, index) in educations" :key="education.school"
                         class="flex items-center md:w-[80%] w-full p-5 rounded-xl bg-[#111a3e] shadow-lg border border-[#1f1641]">
                         <div class="w-1/4">
-                            <img src="https://img.icons8.com/ios-glyphs/60/ffffff/graduation-cap--v1.png"
-                                alt="graduation-cap--v1">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                class="w-14 h-14 text-white">
+                                <path
+                                    d="M12 2 1 7l11 5 9-4.09V17h2V7L12 2Zm0 7.18L4.24 6 12 3.82 19.76 6 12 9.18ZM5 13v3.5C5 18.98 8.13 21 12 21s7-2.02 7-4.5V13l-7 3.18L5 13Z" />
+                            </svg>
                         </div>
                         <div class="w-3/4 pl-4">
                             <h3

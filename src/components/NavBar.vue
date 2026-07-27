@@ -5,13 +5,14 @@
         </div>
         <div class="md:hidden z-30">
             <button type="button" class="block focus:outline-none" @click="isMenuOpen = !isMenuOpen">
-                <span v-if="isMenuOpen" class="text-5xl">
-                    <img src="https://img.icons8.com/ios-filled/100/ffffff/delete-sign.png" alt="close" width="50"
-                        height="50">
-                </span>
-                <span v-else class="text-5xl">
-                    <img src="https://img.icons8.com/ios-filled/ffffff/menu--v6.png" alt="menu" width="50" height="50">
-                </span>
+                <svg v-if="isMenuOpen" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" class="w-9 h-9 text-white">
+                    <path d="M6 6l12 12M18 6L6 18" />
+                </svg>
+                <svg v-else xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" class="w-9 h-9 text-white">
+                    <path d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
             </button>
         </div>
         <nav :class="['fixed inset-0 z-20 flex flex-col items-center justify-center bg-[#111827] md:relative md:bg-transparent md:flex md:justify-between md:flex-row',
@@ -88,7 +89,7 @@ interface ClickOutsideElement extends HTMLElement {
 
 const langs = (key: string) => useI18n().t(`navBar.${key}`);
 
-const menus = ref < MenuItem[] > ([
+const menus = ref<MenuItem[]>([
     { name: 'service', href: '#services' },
     { name: 'aboutMe', href: '#about' },
     { name: 'skills', href: '#skills' },
@@ -107,7 +108,7 @@ const scrollToSection = (href: string) => {
 
 const { locale } = useI18n();
 
-const languages = ref < Language[] > ([
+const languages = ref<Language[]>([
     { code: 'en', name: 'English', flag: '🇬🇧' },
     { code: 'id', name: 'Bahasa Indonesia', flag: '🇮🇩' },
 ]);

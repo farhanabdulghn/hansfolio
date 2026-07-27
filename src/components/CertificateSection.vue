@@ -15,7 +15,7 @@
                         class="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary to-secondary">
                         <span class="text-white font-bold text-lg">{{
                             initials(certificate.issuer)
-                        }}</span>
+                            }}</span>
                     </div>
                 </div>
                 <div class="pl-4 flex-1 min-w-0">
