@@ -13,9 +13,9 @@
           </button>
         </div>
       </div>
-      <ul class="px-4 sm:py-16 xl:pr-16 grid grid-cols-1 gap-6 pt-10 sm:grid-cols-2 md:gap-10 md:pt-12 lg:grid-cols-3"
-        data-aos="fade-right">
-        <div v-for="(project, index) in filteredProjects" :key="index">
+      <ul class="px-4 sm:py-16 xl:pr-16 grid grid-cols-1 gap-6 pt-10 sm:grid-cols-2 md:gap-10 md:pt-12 lg:grid-cols-3">
+        <li v-for="(project, index) in filteredProjects" :key="index" data-aos="fade-up"
+          :data-aos-delay="(index % 3) * 100">
           <div class="h-52 md:h-[24rem] rounded-t-xl relative group" :style="{
             backgroundImage: 'url(' + project.image + ')',
             backgroundSize: 'cover',
@@ -63,7 +63,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </li>
       </ul>
     </div>
     <Teleport to="body">
