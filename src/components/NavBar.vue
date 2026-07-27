@@ -20,8 +20,8 @@
         ]">
             <ul class="flex flex-col items-center space-y-5 md:flex-row md:space-x-5 md:space-y-0">
                 <li v-for="menu in menus" :key="menu.name">
-                    <a :href="menu.href"
-                        class="block text-white transition hover:text-primary ease-linear text-2xl md:text-lg"
+                    <a :href="menu.href" class="block transition ease-linear text-2xl md:text-lg"
+                        :class="activeSection === menu.href ? 'text-primary font-semibold' : 'text-white hover:text-primary'"
                         @click="scrollToSection(menu.href)">
                         {{ langs(`${menu.name}`) }}
                     </a>
@@ -68,7 +68,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue';
 import { useI18n } from 'vue-i18n';
 import type { ObjectDirective } from 'vue';
 
@@ -134,6 +134,42 @@ const selectLocale = (code: string) => {
 const closeLangMenu = () => {
     isLangOpen.value = false;
 };
+
+const activeSection = ref<string>('');
+let scrollObserver: IntersectionObserver | null = null;
+
+const setupScrollSpy = () => {
+    const sections = menus.value
+        .map((menu) => document.querySelector<HTMLElement>(menu.href))
+        .filter((el): el is HTMLElement => el !== null);
+
+    if (sections.length === 0) return;
+
+    scrollObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    activeSection.value = `#${entry.target.id}`;
+                }
+            });
+        },
+        {
+            rootMargin: '-40% 0px -55% 0px',
+            threshold: 0,
+        }
+    );
+
+    sections.forEach((section) => scrollObserver?.observe(section));
+};
+
+onMounted(async () => {
+    await nextTick();
+    setupScrollSpy();
+});
+
+onUnmounted(() => {
+    scrollObserver?.disconnect();
+});
 
 const vClickOutside: ObjectDirective<ClickOutsideElement, (event: MouseEvent) => void> = {
     mounted(el, binding) {

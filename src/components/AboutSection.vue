@@ -37,10 +37,12 @@
                     {{ $t('aboutSection.desc') }}
                 </p>
                 <div class="flex justify-center items-center pt-8">
-                    <div class="grid grid-cols-3 gap-4 max-w-lg">
-                        <div v-for="stat in stats" :key="stat.label"
+                    <div ref="statsRef" class="grid grid-cols-3 gap-4 max-w-lg">
+                        <div v-for="(stat, index) in stats" :key="stat.label"
                             class="text-center rounded-xl bg-[#111a3e] shadow-lg border border-[#1f1641] p-3">
-                            <h3 class="text-white font-bold text-xl sm:text-2xl lg:text-3xl">{{ stat.value }}</h3>
+                            <h3 class="text-white font-bold text-xl sm:text-2xl lg:text-3xl">
+                                +{{ displayedValues[index] }}
+                            </h3>
                             <p class="text-sm sm:text-base text-gray-300">{{ stat.label }}</p>
                         </div>
                     </div>
@@ -51,11 +53,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted, onUnmounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 interface Education { school: string; }
-interface Stat { value: string; label: string; }
+interface Stat { target: number; label: string; }
 
 const langs = (key: string) => useI18n().t(`aboutSection.${key}`);
 
@@ -80,17 +82,57 @@ const educations = ref<Education[]>([
 ])
 
 const stats = ref<Stat[]>([
-    {
-        value: '+5',
-        label: 'Happy Client',
-    },
-    {
-        value: '+25',
-        label: 'Projects',
-    },
-    {
-        value: `+${yearsExperience.value}`,
-        label: 'Years Experience',
-    }
+    { target: 5, label: 'Happy Client' },
+    { target: 25, label: 'Projects' },
+    { target: yearsExperience.value, label: 'Years Experience' },
 ]);
+
+const displayedValues = ref<number[]>(stats.value.map(() => 0));
+const hasAnimated = ref(false);
+const statsRef = ref<HTMLElement | null>(null);
+let statsObserver: IntersectionObserver | null = null;
+
+const animateCountUp = () => {
+    if (hasAnimated.value) return;
+    hasAnimated.value = true;
+
+    const duration = 1500;
+    const startTime = performance.now();
+
+    const step = (now: number) => {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+
+        displayedValues.value = stats.value.map((stat) =>
+            Math.round(stat.target * eased)
+        );
+
+        if (progress < 1) {
+            requestAnimationFrame(step);
+        }
+    };
+
+    requestAnimationFrame(step);
+};
+
+onMounted(() => {
+    if (!statsRef.value) return;
+
+    statsObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    animateCountUp();
+                }
+            });
+        },
+        { threshold: 0.3 }
+    );
+
+    statsObserver.observe(statsRef.value);
+});
+
+onUnmounted(() => {
+    statsObserver?.disconnect();
+});
 </script>

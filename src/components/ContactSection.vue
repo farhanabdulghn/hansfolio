@@ -1,5 +1,5 @@
 <template>
-    <section class="text-white mt-20" id="contact">
+    <section class="text-white mt-20 overflow-hidden" id="contact">
         <h2 class="text-4xl font-bold text-white text-left mb-4 px-4 xl:pl-16">{{ langs("title") }}</h2>
         <div class="grid md:grid-cols-2 gap-4 relative px-4 xl:px-16 mt-8 items-center" data-aos="zoom-in-up">
             <div>
@@ -87,7 +87,7 @@
                 </form>
             </div>
             <div
-                class="bg-gradient-to-tr opacity-25 from-[#570cac] to-primary blur-2xl h-20 w-80 z-0 absolute -top-1/2 -left-4 transform -translate-x-2/3 -translate-1/2">
+                class="absolute -top-16 left-0 h-32 w-48 sm:h-40 sm:w-64 md:h-48 md:w-80 -z-10 pointer-events-none rounded-full bg-gradient-to-tr from-[#570cac] to-primary opacity-25 blur-2xl">
             </div>
         </div>
     </section>
