@@ -103,10 +103,10 @@ const buildExperience = ({
 
 const experiences = ref([
     buildExperience({
-        role: "Intern Full-stack Developer",
-        company: "PT. Bejana Investidata Globalindo",
-        logoSlug: "bigio",
-        linkedinSlug: "bejanainovasi",
+        role: "Mobile Developer",
+        company: "PT. Aesthetic Teknologi Indonesia",
+        logoSlug: "aestech",
+        linkedinSlug: "aestech-official",
     }),
     buildExperience({
         role: "Mobile Developer",
@@ -115,10 +115,11 @@ const experiences = ref([
         linkedinSlug: "pt-ruang-konsul-indonesia",
     }),
     buildExperience({
-        role: "Mobile Developer",
-        company: "PT. Aesthetic Teknologi Indonesia",
-        logoSlug: "aestech",
-        linkedinSlug: "aestech-official",
+        role: "Intern Full-stack Developer",
+        company: "PT. Bejana Investidata Globalindo",
+        logoSlug: "bigio",
+        linkedinSlug: "bejanainovasi",
     }),
+
 ]);
 </script>
