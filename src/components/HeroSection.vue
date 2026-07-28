@@ -47,7 +47,11 @@
                                 leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 -translate-y-1">
                                 <div v-if="showMenu"
                                     class="absolute top-12 left-0 w-max rounded-xl bg-[#111a3e] border border-[#1f1641] shadow-lg overflow-hidden z-50">
-                                    <a href="/hansfolio/assets/resume.pdf" download="cv-FarhanAbdulGhani.pdf"
+                                    <button @click="openResumePreview"
+                                        class="block px-4 py-2.5 w-full text-left text-white text-sm transition hover:bg-[#1a1650]">
+                                        Preview CV
+                                    </button>
+                                    <a :href="resumePath" :download="resume"
                                         class="block px-4 py-2.5 w-full text-left text-white text-sm transition hover:bg-[#1a1650]">
                                         Download CV
                                     </a>
@@ -76,6 +80,7 @@
             </div>
         </div>
     </section>
+
     <transition enter-active-class="transition ease-out duration-200" enter-from-class="opacity-0"
         enter-to-class="opacity-100" leave-active-class="transition ease-in duration-150" leave-from-class="opacity-100"
         leave-to-class="opacity-0">
@@ -108,12 +113,50 @@
             </transition>
         </div>
     </transition>
+
+    <transition enter-active-class="transition ease-out duration-200" enter-from-class="opacity-0"
+        enter-to-class="opacity-100" leave-active-class="transition ease-in duration-150" leave-from-class="opacity-100"
+        leave-to-class="opacity-0">
+        <div v-if="showResumePreview"
+            class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 p-4">
+            <transition enter-active-class="transition ease-out duration-200" enter-from-class="opacity-0 scale-95"
+                enter-to-class="opacity-100 scale-100" leave-active-class="transition ease-in duration-150"
+                leave-from-class="opacity-100 scale-100" leave-to-class="opacity-0 scale-95">
+                <div v-if="showResumePreview"
+                    class="relative bg-[#111a3e] border border-[#1f1641] rounded-xl shadow-lg p-4 sm:p-6 w-11/12 max-w-3xl">
+                    <button @click="closeResumePreview"
+                        class="absolute top-3 right-3 text-[#adb7be] hover:text-white transition text-2xl leading-none z-10">
+                        &times;
+                    </button>
+                    <div class="flex items-center justify-center gap-3 mb-4">
+                        <h2 class="text-lg font-semibold text-white">{{ langs("resumePreview.title") }}</h2>
+                        <a :href="resumeFliplinkUrl" target="_blank" rel="noopener noreferrer"
+                            :title="langs('resumePreview.openLinkTitle')"
+                            class="flex items-center gap-1 text-xs font-semibold px-3 py-1.5 rounded-full border border-primary text-primary hover:bg-primary hover:text-white transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="w-3.5 h-3.5">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                <path d="M15 3h6v6" />
+                                <path d="M10 14 21 3" />
+                            </svg>
+                            {{ langs("resumePreview.openLink") }}
+                        </a>
+                    </div>
+                    <div class="w-full rounded-lg overflow-hidden border border-[#1f1641]">
+                        <iframe :src="resumeFliplinkUrl" width="100%" height="600" frameborder="0" allowfullscreen
+                            class="block"></iframe>
+                    </div>
+                </div>
+            </transition>
+        </div>
+    </transition>
 </template>
 
 <script setup lang="ts">
 import Aos from 'aos';
 import 'aos/dist/aos.css';
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 type FileFormat = 'pdf' | 'svg' | 'pptx' | 'jpg' | 'png';
@@ -123,9 +166,14 @@ const { locale } = useI18n();
 
 Aos.init();
 
+const resume = ref<string>('Resume_Farhan_Abdul_Ghani.pdf');
+const resumeFliplinkUrl = ref<string>('https://go.fliplink.me/view/5EB7ABCB-C8C6-4DF3-891F-31FF0888534D');
 const showMenu = ref<boolean>(false);
 const showModal = ref<boolean>(false);
+const showResumePreview = ref<boolean>(false);
 const fileFormats = ref<FileFormat[]>(['pdf', 'svg', 'pptx', 'jpg', 'png']);
+
+const resumePath = computed<string>(() => `/hansfolio/assets/${resume.value}`);
 
 const langs = (key: string): string => useI18n().t(`heroSection.${key}`);
 
@@ -160,6 +208,15 @@ const downloadPortfolioFile = (format: FileFormat): void => {
 
 const closeModal = (): void => {
     showModal.value = false;
+};
+
+const openResumePreview = (): void => {
+    showMenu.value = false;
+    showResumePreview.value = true;
+};
+
+const closeResumePreview = (): void => {
+    showResumePreview.value = false;
 };
 
 const getButtonClass = (format: FileFormat): string => {

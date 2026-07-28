@@ -13,6 +13,11 @@
       "title": "Choose File Format",
       "subtitle": "Please select the format for the portfolio file:",
       "cancel": "Cancel"
+    },
+    "resumePreview": {
+      "title": "Resume Preview",
+      "openLink": "Open Link",
+      "openLinkTitle": "Open in new tab"
     }
   },
   "serviceSection": {
@@ -47,6 +52,10 @@
       "konsulin": "Jan 2023 - Aug 2023",
       "aestech": "Aug 2023 - Jul 2026"
     }
+  },
+  "techStackSection": {
+    "title": "Currently Learning",
+    "subtitle": "Technologies and tools I'm actively exploring right now to keep growing as a developer."
   },
   "latestProjectSection": {
     "title": "My Latest Projects",

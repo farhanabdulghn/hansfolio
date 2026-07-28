@@ -8,6 +8,7 @@
           <ServiceSection />
           <AboutSection />
           <ExperienceAndSkillSection />
+          <TechStackSection />
           <LatestProjectSection />
           <CertificateSection />
           <ContactSection />
@@ -36,6 +37,7 @@ import ContactSection from "./components/ContactSection.vue";
 import FooterSection from "./components/FooterSection.vue";
 import BackToTop from "./components/BackToTop.vue";
 import LoadingSpinner from "./components/LoadingSpinner.vue";
+import TechStackSection from "./components/TechStackSection.vue";
 
 const NavBar = defineAsyncComponent(() => import('@/components/NavBar.vue'));
 

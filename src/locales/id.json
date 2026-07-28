@@ -13,6 +13,11 @@
       "title": "Pilih Format File",
       "subtitle": "Pilih format untuk file portofolio:",
       "cancel": "Batal"
+    },
+    "resumePreview": {
+      "title": "Preview Resume",
+      "openLink": "Buka Link",
+      "openLinkTitle": "Buka di tab baru"
     }
   },
   "serviceSection": {
@@ -47,6 +52,10 @@
       "konsulin": "Jan 2023 - Aug 2023",
       "aestech": "Aug 2023 - Jul 2026"
     }
+  },
+  "techStackSection": {
+    "title": "Sedang Dipelajari",
+    "subtitle": "Teknologi dan tools yang sedang aktif saya pelajari untuk terus berkembang sebagai developer."
   },
   "latestProjectSection": {
     "title": "Project Terbaru Saya",
