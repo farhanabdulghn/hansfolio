@@ -35,7 +35,11 @@
   },
   "aboutSection": {
     "titleEdu": "My Education",
-    "titleAbout": ["More", "about", "me"],
+    "titleAbout": [
+      "More",
+      "about",
+      "me"
+    ],
     "educations": [
       {
         "title": "D3 - Information Management",
@@ -45,12 +49,16 @@
     "desc": "I am a professional in the field of information technology with experience in software development. Since starting my career in the IT world, I have been involved in various projects that help companies and clients improve operational efficiency through technology-driven solutions. I am passionate about continuous learning and personal development, and I aim to contribute my best to every project I work on. With over 3+ years of experience, I possess skills in project management, software development, and implementing innovative technology solutions."
   },
   "experienceAndSkillSection": {
-    "titleSkill": ["My", "Skills"],
+    "titleSkill": [
+      "My",
+      "Skills"
+    ],
     "titleExperience": "My Experiences",
     "periods": {
-      "bigio": "Aug 2022 - Dec 2022",
+      "kabayan": "Aug 2026 - Present",
+      "aestech": "Aug 2023 - Jul 2026",
       "konsulin": "Jan 2023 - Aug 2023",
-      "aestech": "Aug 2023 - Jul 2026"
+      "bigio": "Aug 2022 - Dec 2022"
     }
   },
   "techStackSection": {

@@ -35,7 +35,11 @@
   },
   "aboutSection": {
     "titleEdu": "Pendidikan Saya",
-    "titleAbout": ["Lebih lanjut", "tentang", "saya"],
+    "titleAbout": [
+      "Lebih lanjut",
+      "tentang",
+      "saya"
+    ],
     "educations": [
       {
         "title": "D3 - Manajemen Informatika",
@@ -45,12 +49,16 @@
     "desc": "Saya adalah seorang profesional di bidang teknologi informasi dengan pengalaman dalam pengembangan perangkat lunak. Sejak memulai karir saya di dunia IT, saya telah terlibat dalam berbagai proyek yang membantu perusahaan dan klien dalam meningkatkan efisiensi operasional melalui solusi berbasis teknologi. Saya sangat bersemangat untuk terus belajar dan mengembangkan diri, serta memberikan kontribusi terbaik dalam setiap proyek yang saya kerjakan. Dengan lebih dari 3+ tahun pengalaman, saya memiliki keterampilan dalam manajemen proyek, pengembangan perangkat lunak, dan penerapan solusi teknologi yang inovatif."
   },
   "experienceAndSkillSection": {
-    "titleSkill": ["Kemampuan", "Saya"],
+    "titleSkill": [
+      "Kemampuan",
+      "Saya"
+    ],
     "titleExperience": "Pengalaman Saya",
     "periods": {
-      "bigio": "Aug 2022 - Des 2022",
+      "kabayan": "Aug 2026 - Sekarang",
+      "aestech": "Aug 2023 - Jul 2026",
       "konsulin": "Jan 2023 - Aug 2023",
-      "aestech": "Aug 2023 - Jul 2026"
+      "bigio": "Aug 2022 - Des 2022"
     }
   },
   "techStackSection": {
