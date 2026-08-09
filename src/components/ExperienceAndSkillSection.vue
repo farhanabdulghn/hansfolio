@@ -97,11 +97,17 @@ const buildExperience = ({
     role,
     company,
     logoSlug,
-    logo: `${logoBase}/${logoSlug}.jpg`,
+    logo: `${logoBase}/${logoSlug}.webp`,
     url: `${linkedinBase}/${linkedinSlug}/`,
 });
 
 const experiences = ref([
+    buildExperience({
+        role: "Mobile Developer",
+        company: "Kabayan Consulting",
+        logoSlug: "kabayan",
+        linkedinSlug: "kabayan-consulting",
+    }),
     buildExperience({
         role: "Mobile Developer",
         company: "PT. Aesthetic Teknologi Indonesia",
