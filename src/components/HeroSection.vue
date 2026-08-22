@@ -167,7 +167,7 @@ const { locale } = useI18n();
 Aos.init();
 
 const resume = ref<string>('Resume_Farhan_Abdul_Ghani.pdf');
-const resumeFliplinkUrl = ref<string>('https://go.fliplink.me/view/5EB7ABCB-C8C6-4DF3-891F-31FF0888534D');
+const resumeFliplinkUrl = ref<string>('https://go.fliplink.me/view/048C2B19-37F4-4579-B60A-EF8D695EA2E5');
 const showMenu = ref<boolean>(false);
 const showModal = ref<boolean>(false);
 const showResumePreview = ref<boolean>(false);
